@@ -1,0 +1,142 @@
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between">
+            <!-- Avatar on the left -->
+            <img src="./../../assets/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 50px; height: 50px;">
+
+            <!-- User details -->
+            <div class="flex-grow-1 d-flex flex-column">
+                <!-- Name -->
+                <div class="ms-3">
+                    <h6 class="mb-0">John Doe</h6>
+                </div>
+
+                <!-- Timer icon below the name -->
+                <div class="text-muted ms-3 mt-1">
+                  <span class="material-icons text-dark clock">
+                      schedule
+                  </span>3 min ago
+                </div>
+            </div>
+
+            <!-- Vertical three dots on the right -->
+            <div class="ml-auto">
+                <span>&#8942;</span>
+            </div>
+        </div>
+
+        <!-- User interests and location -->
+        <div class="d-flex align-items-center mb-2">
+          <!-- User interest icon and text -->
+          <div class="me-2 mt-2">
+              <span class="material-icons text-danger">
+                  school
+                  </span>
+          </div>
+          <div class="ms-2 me-3">
+              <p class="mb-0">Epic Developer</p>
+          </div>
+      
+          <!-- Location icon and text -->
+          <div class=" me-1 mt-2">
+              <span class="material-icons text-success">
+                  location_on
+                  </span>
+          </div>
+          <div>
+              <p class="mb-0 ms-1">Ghana</p>
+          </div>
+      
+          <!-- Favourite and message icons on the right -->
+          <div class="ms-auto">
+              <div class="mr-3 ">
+                  <span  class="me-1" style="border:  #13a550 solid 10px; background:#13a550; border-radius:3px;">
+                      <span class="material-icons text-white" style="width: 18px; height: 16px;">
+                          bookmark
+                          </span>
+
+                      </span>
+
+                  <span style="border: #3e7df3 solid 10px; background:#3e7df3; border-radius:3px;">
+                      <span class="material-icons text-white" style="width: 18px; height: 16px;">
+                          mail
+                          </span>
+
+                      </span>
+                  
+                 
+              </div>
+          </div>
+      </div>
+
+      <div>
+        <br>
+        <h5>
+          Senior Wordpress Developer
+        </h5>
+      </div>
+      <div class="ml-auto">
+        <span class="bg-success text-white p-2">Full Time</span>
+        <!-- Price per hour -->
+        <span class="ms-2 ">$30/hr</span>
+    </div>
+    <br>
+    
+    <div>
+      <!-- User's dynamic content -->
+      <p class="mb-0 truncated-text" id="longText">
+        <!-- User's lengthy text content here -->
+        <!-- Assume this text is fetched dynamically from the database -->
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, libero vel consectetur luctus, odio nisi aliquam risus, vel volutpat orci felis at dolor Lorem ipsum dolor sit amet, 
+        consectetur adipiscing elit. Sed euismod, libero vel consectetur luctus, odio nisi aliquam risus, vel volutpat orci felis at dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+         Sed euismod, libero vel consectetur luctus, odio nisi aliquam risus, vel volutpat orci felis at dolor...
+      </p>
+    
+      <!-- "Read More" link -->
+      <a href="#" class="text-primary" id="readMoreLink" role="button" onclick="toggleText()">
+        Read More
+      </a>
+     
+    </div>
+    <div class="mb-3" style="margin-top:8px;">
+      
+      <span class="bg-secondary rounded-pill p-1" style="border-radius: 12px;">HTML</span>
+      <span class="badge badge-secondary rounded-pill p-2" style="border-radius: 12px;">Python</span>
+      <span class="badge badge-secondary rounded-pill p-2" style="border-radius: 12px;">C++</span>
+      <span class="badge badge-secondary rounded-pill p-2" style="border-radius: 12px;">JavaScript</span>
+    </div>
+    <hr>
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- Like Section -->
+      <div class="d-flex align-items-center">
+          <span class="material-icons me-2 text-danger love ">
+              favorite
+              </span>
+        <span class="me-3">Like</span>
+        <div class="rounded-circle bg-secondary text-white px-2">10</div>
+      </div>
+    
+
+<!-- Comment Section -->
+
+  <div class="d-flex align-items-center">
+      <span class="material-icons me-2 comment text-primary ">
+          chat
+          </span>
+    <span class="me-3">Comment</span>
+    <div class="rounded-circle bg-secondary text-white px-2">5</div>
+  </div>
+
+
+    
+      <!-- View Section -->
+      <div class="d-flex align-items-center">
+          <span class="material-icons visibility text-primary">
+              visibility
+              </span>
+        <span>View</span>
+        <div class="rounded-circle bg-secondary text-white px-2">90</div>
+      </div>
+    </div>
+    </div>
+</div>

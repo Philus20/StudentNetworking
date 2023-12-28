@@ -1,0 +1,32 @@
+.forms{
+     display: flex;
+    justify-content: center; 
+    height: 590px;
+    
+    
+}
+
+/* input[type='email']{
+   
+    outline: none;
+    border: none;
+} */
+
+input [type='checkbox']{
+    margin-right:10px ! important ;
+    background-color: red;
+}
+.content{
+    background-color: white;
+    padding: 36px ! important;
+    
+}
+
+ .login{
+    width: 100%;
+}
+
+.forget{
+    text-decoration: none;
+    text-align: center !important;
+}
