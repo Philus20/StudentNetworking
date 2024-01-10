@@ -13,12 +13,14 @@
   import { HubConnection ,HubConnectionBuilder} from '@microsoft/signalr';
   import { HttpClient } from '@angular/common/http';
 import { Register } from '../utils/IRegister';
+import { Friendship } from '../utils/Friendship';
   
   @Injectable({
     providedIn: 'root'
   })
   export class SignalrService {
     data:any[]=[]
+    
     private hubConnection: HubConnection | undefined;
     private messageSubject = new Subject<{ user: string, message: string }>();
   
@@ -30,10 +32,15 @@ getData() {
       
 
   }
+  
   postData(data: any) {
     // Assuming you want to send data in the request body
     return this.http.post('http://localhost:5293/Students', data);
 
+  }
+   
+  sendFriend(data:Friendship){
+    return this.http.post('http://localhost:5293/api/Friendship',data)
   }
 
     //hub 

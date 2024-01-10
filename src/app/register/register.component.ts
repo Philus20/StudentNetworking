@@ -79,12 +79,15 @@ ngOnInit(){
             
            })
         },
-        error:(error:any)=> {
+        error:(error)=> {
           console.error("Reached here",error.error);
             // Handle the error here
-             if(error.error = "user already exist"){
+             if(error.status==0){
                this.toast.info('You may have sign up already','OOPS')
                
+            }
+            else if(error.error = "user already exist"){
+              this.toast.error('','check your internet connection')
             }
         },
        })

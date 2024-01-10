@@ -1,216 +1,82 @@
-<div class="">
+<!-- Right side -->
+<div class="col-md-4">
+  <div class="">
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #fff;">
         <!-- Heading on the left -->
-        <h5 class="mb-0">Top Jobs</h5>
+        <h5 class="mb-0">Top chats</h5>
         <!-- Three dots on the right -->
         <span>&#8942;</span>
       </div>
-      <div class="card-body">
-        <!-- Job details -->
-        <div class="d-flex justify-content-between">
-          <!-- Job title and text on the left -->
-          <div class="text-left">
-            <h6 class="card-title">Senior Product Designer</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <!-- Price per hour on the right -->
-          <div class="text-right ">
-            <p class="font-weight-bold">$50/hr</p>
-          </div>
+       <div class="card-body">
+        <!-- Avatar, Name, and Interest -->
+        
+        <ng-container *ngFor="let d of topChats">
+        <div class="d-flex justify-content-between align-items-center" >
+          <!-- Avatar on the left -->
+          
+
+          <!-- Name and Interest -->
+          <!-- <div class="text-left">
+            <h6 class="mb-1">John Doe</h6>
+            <p class="mb-0 text-muted">Web Developer</p>
+          </div> -->
+
+           
+          <img src="{{ baseUrl + d.profilePictureName}}" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
+          <div class="media-body">
+              <span class="mt-0"><strong>{{d.firstName }} {{d.surname}}</strong></span>
+              <p>Hey, how are you doing?</p>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="text-muted">12:30 PM</small>
+              <span class="badge badge-primary " style="color: red;">1</span>
+            </div>
+          
+          <hr class="my-2">
+
+          
         </div>
-        <div class="d-flex justify-content-between mt-4">
-          <!-- Job title and text on the left -->
-          <div class="text-left">
-            <h6 class="card-title">Senior UI/UX Designer</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <!-- Price per hour on the right -->
-          <div class="text-right mb-3">
-            <p class="font-weight-bold">$50/hr</p>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between mt-4">
-          <!-- Job title and text on the left -->
-          <div class="text-left">
-            <h6 class="card-title">Senior Programmer</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <!-- Price per hour on the right -->
-          <div class="text-right mb-3">
-            <p class="font-weight-bold">$50/hr</p>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between mt-4">
-          <!-- Job title and text on the left -->
-          <div class="text-left">
-            <h6 class="card-title">Senior Front-End Developer</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <!-- Price per hour on the right -->
-          <div class="text-right mb-3">
-            <p class="font-weight-bold">$50/hr</p>
-          </div>
-        </div>
-      </div>
+      </ng-container>
+
+        
+</div>
     </div>
 
     <div class="card mt-5">
       <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #fff;">
         <!-- Heading on the left -->
-        <h5 class="mb-0">Most Viewed This Week</h5>
+        <h5 class="mb-0">Online</h5>
         <!-- Three dots on the right -->
         <span>&#8942;</span>
       </div>
-      <div class="card-body">
-        <!-- Job details -->
-        <div class="d-flex justify-content-between">
-          <!-- Job title and text on the left -->
-          <div class="text-left">
-            <h6 class="card-title">Senior Product Designer</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <!-- Price per hour on the right -->
-          <div class="text-right ">
-            <p class="font-weight-bold">$50/hr</p>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between mt-4">
-          <!-- Job title and text on the left -->
-          <div class="text-left">
-            <h6 class="card-title">Senior UI/UX Designer</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <!-- Price per hour on the right -->
-          <div class="text-right mb-3">
-            <p class="font-weight-bold">$50/hr</p>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between mt-4">
-          <!-- Job title and text on the left -->
-          <div class="text-left">
-            <h6 class="card-title">Senior Programmer</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <!-- Price per hour on the right -->
-          <div class="text-right mb-3">
-            <p class="font-weight-bold">$50/hr</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="card mt-5">
-      <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #fff;">
-        <!-- Heading on the left -->
-        <h5 class="mb-0">Most Viewed People</h5>
-        <!-- Three dots on the right -->
-        <span>&#8942;</span>
-      </div>
+      
       <div class="card-body">
         <!-- Avatar, Name, and Interest -->
         <div class="d-flex justify-content-between align-items-center">
           <!-- Avatar on the left -->
-          <img src="img/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
-    
-          <!-- Name and Interest -->
-          <div class="text-left">
-            <h6 class="mb-1">John Doe</h6>
-            <p class="mb-0 text-muted">Web Developer</p>
-          </div>
-    
-          <!-- Icon at the extreme right -->
-          <div class="text-right" style="border: #bdbebd solid 1px; padding:4px;">
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
+          <img src="./../../assets/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
 
-        <div class="d-flex justify-content-between align-items-center my-3">
-          <!-- Avatar on the left -->
-          <img src="img/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
-    
           <!-- Name and Interest -->
           <div class="text-left">
             <h6 class="mb-1">John Doe</h6>
             <p class="mb-0 text-muted">Web Developer</p>
           </div>
-    
-          <!-- Icon at the extreme right -->
-          <div class="text-right" style="border: #bdbebd solid 1px; padding:4px;">
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between align-items-center my-3">
-          <!-- Avatar on the left -->
-          <img src="img/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
-    
-          <!-- Name and Interest -->
-          <div class="text-left">
-            <h6 class="mb-1">John Doe</h6>
-            <p class="mb-0 text-muted">Web Developer</p>
-          </div>
-    
-          <!-- Icon at the extreme right -->
-          <div class="text-right" style="border: #bdbebd solid 1px; padding:4px;">
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
 
-        <div class="d-flex justify-content-between align-items-center my-3">
-          <!-- Avatar on the left -->
-          <img src="img/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
-    
-          <!-- Name and Interest -->
-          <div class="text-left">
-            <h6 class="mb-1">John Doe</h6>
-            <p class="mb-0 text-muted">Web Developer</p>
-          </div>
-    
           <!-- Icon at the extreme right -->
           <div class="text-right" style="border: #bdbebd solid 1px; padding:4px;">
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-
-        <div class="d-flex justify-content-between align-items-center my-3">
-          <!-- Avatar on the left -->
-          <img src="img/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
-    
-          <!-- Name and Interest -->
-          <div class="text-left">
-            <h6 class="mb-1">John Doe</h6>
-            <p class="mb-0 text-muted">Web Developer</p>
-          </div>
-    
-          <!-- Icon at the extreme right -->
-          <div class="text-right" style="border: #bdbebd solid 1px; padding:4px;">
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-
-        <div class="d-flex justify-content-between align-items-center my-3">
-          <!-- Avatar on the left -->
-          <img src="img/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
-    
-          <!-- Name and Interest -->
-          <div class="text-left">
-            <h6 class="mb-1">John Doe</h6>
-            <p class="mb-0 text-muted">Web Developer</p>
-          </div>
-    
-          <!-- Icon at the extreme right -->
-          <div class="text-right" style="border: #bdbebd solid 1px; padding:4px;">
-            <i class="fas fa-plus"></i>
+            <span class="material-icons text-dark plus">
+                add
+                </span>
           </div>
         </div>
 
         
-  
-        <!-- View More button -->
-        <div class="text-center mt-3">
-          <span class="view-more-btn" onclick="toggleViewMore()">View More</span>
-        </div>
-      </div>
-      </div>
+</div>
+
+    
     </div>
+</div>
+
+</div>
+   

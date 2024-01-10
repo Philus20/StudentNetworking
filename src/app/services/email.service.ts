@@ -4,21 +4,26 @@ import { Observable,of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiResponse } from '../utils/api-response';
 import { Register } from '../utils/IRegister';
-
+import { BehaviorSubject } from 'rxjs';
 import { Login } from '../utils/Ilogin';
 import { LoginService } from './login.service';
+import { Friendship } from '../utils/Friendship';
 @Injectable({
   providedIn: 'root'
 })
 
 
 export class EmailService {
-  student!: string; 
+  //student!: string; 
 loginInfo:Register[]=[] ;
 checkingRes!:Boolean
 userInformation!:Register
+Friends:Friendship[] =[]
+private friendsSubject = new BehaviorSubject<Register[]>([]);
+friends$ = this.friendsSubject.asObservable();
 
 api = "http://localhost:5293/Students"
+fileApiUrl:string ='http://localhost:5293/api/Files'
 
   constructor(private http:HttpClient, private loginService:LoginService) {
     // this.student = ((localStorage.getItem('user')!));
@@ -34,7 +39,21 @@ api = "http://localhost:5293/Students"
     //  console.log(this.loginService.nam)
 
    }
-   
+   //calling suggestion controller
+  //  getFriends(id: number) {
+  //   return this.http.get(`http://localhost:5293/Suggestion/${id}/circle`);
+  // }
+  getFriends(id: number): Observable<Register[]> {
+    // Make API call to get friends
+    this.http.get<Register[]>(`http://localhost:5293/Suggestion/${id}/circle`)
+      .subscribe(friends => {
+        // Update the friends subject
+        this.friendsSubject.next(friends);
+        console.log('it is working')
+      });
+
+    return this.friends$;
+  }
 
   getEmail(email: string) {
     const url = `${this.api}/${email}`;
@@ -53,6 +72,15 @@ return true
       this.checkingRes=false
       return false
     }
+
+   }
+   //http://localhost:5293/Suggestion/1/pen
+   getPendingFrinds(id:number){
+    return this.http.get(`http://localhost:5293/Suggestion/${id}/pen`)
+   }
+
+   getTopChats(id:number){
+return this.http.get(`http://localhost:5293/Suggestion/${id}/chat`)
    }
  // getUserById(pass1:string) {
   //   this.getEmail(email).subscribe({

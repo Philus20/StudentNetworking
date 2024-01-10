@@ -26,6 +26,20 @@ import { ToastsComponent } from './toasts/toasts.component';
 
 import { AuthService } from './services/auth.service';
 import { MainPageComponent } from './main-page/main-page.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { ProfileComponent } from './profile/profile.component';
+import {  NgxSpinnerModule } from 'ngx-spinner';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { CkEditorComponent } from './ck-editor/ck-editor.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { PostsComponent } from './posts/posts.component';
+import { SuggestionsComponent } from './suggestions/suggestions.component';
+import { PendingComponent } from './pending/pending.component';
+import { FriendsComponent } from './friends/friends.component';
+import { MessageComponent } from './message/message.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +56,15 @@ import { MainPageComponent } from './main-page/main-page.component';
     TabsComponent,
     ToastsComponent,
     MainPageComponent,
+    ImageUploadComponent,
+    ProfileComponent,
+    ProgressBarComponent,
+    CkEditorComponent,
+    PostsComponent,
+    SuggestionsComponent,
+    PendingComponent,
+    FriendsComponent,
+    MessageComponent
     
   ],
   imports: [
@@ -53,8 +76,12 @@ import { MainPageComponent } from './main-page/main-page.component';
     NgbCarouselModule,
     FormsModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
+    CKEditorModule,
+    
+    
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 1000,
       positionClass: 'toast-top-center',
       preventDuplicates: true,
     })
