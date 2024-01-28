@@ -61,27 +61,42 @@ fileApiUrl:string ='http://localhost:5293/api/Files'
     return this.http.get(url)
       
   }
-   checking(bankendPassword:string, frontentPassword:string):boolean{
-    if( bankendPassword==frontentPassword ){
-
-      this.checkingRes=true
-      console.log(this.userInformation)
-return true
+   checking(bankendPassword: string, frontendPassword: string): boolean {
+    if (bankendPassword == frontendPassword) {
+      this.checkingRes = true;
+      
+      return true;
+    } else {
+      this.checkingRes = false;
+      console.log('checkingRes:', this.checkingRes);
+      return false;
     }
-    else{
-      this.checkingRes=false
-      return false
-    }
-
-   }
+  }
+  
    //http://localhost:5293/Suggestion/1/pen
    getPendingFrinds(id:number){
     return this.http.get(`http://localhost:5293/Suggestion/${id}/pen`)
    }
 
-   getTopChats(id:number){
-return this.http.get(`http://localhost:5293/Suggestion/${id}/chat`)
-   }
+   private chatSubject = new BehaviorSubject<Register[]>([]);
+chats$ = this.chatSubject.asObservable();
+
+getTopChats(id: number): Observable<Register[]> {
+   this.http.get<Register[]>(`http://localhost:5293/Suggestion/${id}/chat`).subscribe(
+    // Use the tap operator to perform side-effects without modifying the response
+    chat => {
+      // Emit the new value to subscribers
+      this.chatSubject.next(chat);
+      console.log('it is working, top chat')
+      
+    }
+   );
+   return this.chats$;
+  
+    }
+
+    
+
  // getUserById(pass1:string) {
   //   this.getEmail(email).subscribe({
   //     next: (data:any) => {

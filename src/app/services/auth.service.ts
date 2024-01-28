@@ -12,30 +12,28 @@ import { LoginService } from './login.service';
 })
 export class AuthService implements CanActivate {
   dataReturned!: Register
-  
+  loginPass:string=''
+  dbPass:string = ''
   
   constructor( private signal:SignalrService,private emailservice:EmailService, private loginService:LoginService, private router:Router) { 
+   
    
   }
   
   
-  canActivate(route:ActivatedRouteSnapshot, state:RouterStateSnapshot):boolean{
-  
-  
-    // if(this.emailservice.loginInfo.length>0 && this.loginService.userLoginInfo?.password==this.emailservice.loginInfo[0].password){
-    //    console.log(this.emailservice.loginInfo[0].password)
-    //    console.log("djjjjjjjjjjjjjjjjjj")
-    //   return true
-    // }
-    if(this.emailservice.checkingRes){
-      return true
-    }
-    else{
-      console.log('password mismatch')
-      this.router.navigate(['/log'])
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    
+    
+     if(this.emailservice.checkingRes){
+      console.log(this.emailservice.checkingRes)
+      return true;
+    } else {
+      console.log('password mismatch');
+      
+        this.router.navigate(['/log']);
+      
       return false
     }
-
-    
   }
+  
 }

@@ -56,6 +56,24 @@
             <a class="nav-link" href="#">Notification</a>
           </div>
         </li>
+        
+        <li class="nav-item">
+          <!-- <div class="d-flex flex-column align-items-center">
+            
+                <button type="button" (click)="me()" class="btn btn-danger text-white">Log out</button>
+          </div> -->
+          
+		<div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-danger" id="dropdownBasic1" ngbDropdownToggle>
+				Toggle dropdown
+			</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+				<button ngbDropdownItem>Action - 1</button>
+				<button ngbDropdownItem>Another Action</button>
+				<button ngbDropdownItem>Something else is here</button>
+			</div>
+	</div>
+        </li>
       </ul>
     </div>
   </nav>

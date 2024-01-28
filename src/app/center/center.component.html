@@ -14,9 +14,13 @@
           <!-- Buttons on the right -->
           <div class="col-md-9  mt-3" style="text-align: right">
             <button class="btn  mr-2">Post a Project</button>
-            <button class="btn btn-primary">Post a mentioning</button>
+            <button class="btn btn-primary" (click)="showEditor()">Post a mentioning</button>
           </div>
+          <div 
+          [style.display]="ckEditor?'block':'none'"
+          >
           <app-ck-editor></app-ck-editor>
+        </div>
         </div>
       </div>
     </div>
@@ -24,7 +28,7 @@
 
     <app-user-interest></app-user-interest>
 
-    <app-message></app-message>
+   
 
 
   

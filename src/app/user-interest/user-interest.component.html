@@ -82,15 +82,9 @@
     </div>
     <br>
     
-    <div>
+    <div [innerHTML]="postData">
       <!-- User's dynamic content -->
-      <p class="mb-0 truncated-text" id="longText">
-        <!-- User's lengthy text content here -->
-        <!-- Assume this text is fetched dynamically from the database -->
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, libero vel consectetur luctus, odio nisi aliquam risus, vel volutpat orci felis at dolor Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit. Sed euismod, libero vel consectetur luctus, odio nisi aliquam risus, vel volutpat orci felis at dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Sed euismod, libero vel consectetur luctus, odio nisi aliquam risus, vel volutpat orci felis at dolor...
-      </p>
+     
     
       <!-- "Read More" link -->
       <a href="#" class="text-primary" id="readMoreLink" role="button" onclick="toggleText()">

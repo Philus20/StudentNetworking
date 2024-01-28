@@ -1,4 +1,4 @@
 <!-- app.component.html -->
+<ckeditor tagName="textarea" [editor]="Editor" [(ngModel)]="editorData" data="<p>Hello, world! k</p>"></ckeditor>
 
-<ckeditor tagName="textarea" [editor]="Editor" data="<p>Hello, world!</p>" ></ckeditor>
-
+<button (click)="onButtonClick()" class=" btn btn-primary">Post </button>

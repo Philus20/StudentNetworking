@@ -43,6 +43,11 @@ getData() {
     return this.http.post('http://localhost:5293/api/Friendship',data)
   }
 
+  acceptFriend(senderId: number, receiverId: number): Observable<string> {
+    return this.http.put(`http://localhost:5293/api/Friendship/accepted/${senderId}/${receiverId}`, null, { responseType: 'text' });
+  }
+  
+
     //hub 
     startConnection(): void {
       this.hubConnection = new signalR.HubConnectionBuilder()
@@ -53,21 +58,39 @@ getData() {
         .then(() => console.log('Connection started'))
         .catch(err => console.error('Error while starting connection: ', err));
   
-      this.hubConnection.on('ReceiveMessage', (user: string, message: string) => {
-        this.messageSubject.next({ user, message });
-      });
-    }
-  
+    //   this.hubConnection.on('ReceiveMessage', (user: string, message: string) => {
+    //     this.messageSubject.next({ user, message });
+    //   });
+    this.hubConnection.on("ReceiveMessage", function (user, message) {
+      console.log(user + " says: " + message);
+    });
+
+    this.hubConnection.onclose(error => {
+      console.error("Connection closed:", error);
+  });
+     }
+  // Assume you have a SignalR connection established
+
+// Define a method to handle the server's response
+
+
+// Call the server method
+
+
     sendMessage(user: string, message: string): void {
+      console.log("clieeeeeeeeeeeeeeeeeeent 111111111111111")
       if (this.hubConnection?.state === signalR.HubConnectionState.Connected) {
-        this.hubConnection.invoke('SendMessage', user, message)
-          .catch(err => console.error('Error while sending message: ', err));
+        console.log("clieeeeeeeeeeeeeeeeeeent")
+        // this.hubConnection.invoke('SendMessage', user, message)
+        this.hubConnection.invoke("SendMessage", "Hello, server!");
+         console.log("444")
       }
     }
   
     getMessageObservable(): Observable<{ user: string, message: string }> {
       return this.messageSubject.asObservable();
     }
+  
   }
   
   //  hubConnection!:HubConnection

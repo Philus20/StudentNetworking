@@ -79,11 +79,12 @@ export  class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.chatService.startConnection();
     this.chatService.getMessageObservable().subscribe(msg => this.chatHistory.push(msg));
+
   }
 
   sendMessage(): void {
     if (this.message.trim() !== '') {
-      this.chatService.sendMessage(this.user, this.message);
+       this.chatService.sendMessage(this.user, this.message);
       this.message = '';
     }
   }

@@ -5,6 +5,7 @@ import { SharedService } from '../services/shared.service';
 import { Register } from '../utils/IRegister';
 import { SignalrService } from '../services/signalr.service';
 import { Friendship } from '../utils/Friendship';
+import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,9 +20,23 @@ export class HomeComponent implements OnInit {
   friendProfile!:string
   baseUrl:string = 'http://localhost:5293/api/Files/'
   pendingData :Register[] = []
+  loginEmail:string = ''
+  loginPass:string = ''
 
-constructor(public emailService:EmailService, public imageService: ImageService, private sService: SharedService,private signalServe:SignalrService){
-  
+constructor(public emailService:EmailService, public imageService: ImageService, private sService: SharedService,private signalServe:SignalrService,
+  private modal:NgbModal
+  ){
+  const storeEmail = localStorage.getItem('e');
+  const storePass = localStorage.getItem('p');
+  if (storeEmail !== null && storePass !== null) {
+    this.loginEmail = storeEmail;
+    this.loginPass = storePass;
+  console.log(this.loginEmail + this.loginPass + ' main ');
+ // this.emailService.checking(this.dbPass, this.loginPass);
+  // console.log('vaue:' + this.emailService.checkingRes);
+
+ // this.data(this.loginPass,this.dbPass)
+  }
   this.emailService.getFriends(this.emailService.userInformation.id).subscribe({
     next: (friends: Register[]) => {
       // Handle the updated friends list here
@@ -51,6 +66,9 @@ constructor(public emailService:EmailService, public imageService: ImageService,
        
   // this.profileUrl=`${this.emailService.fileApiUrl}/${}`
 }
+open(content:string){
+  this.modal.open(content)
+}
 ngOnInit(){
   console.log('test')
   console.log('here  ')
@@ -68,16 +86,7 @@ ngOnInit(){
   }
   )
 
-  this.emailService.getPendingFrinds(this.emailService.userInformation.id).subscribe({
-    next:(data:any)=>{
-    this.pendingData = data;
-    console.log(this.pendingData)
-    //this.emailService.getEmail(this.emailService.userInformation.id);
-    
-  
-  }
- 
-  })
+  this.pendingDataUpdates()
 }
 
 showDotsInfo = false;
@@ -85,7 +94,7 @@ showDotsInfo = false;
 toggleDotsInfo() {
   this.showDotsInfo = !this.showDotsInfo;
 }
-
+isActive:boolean=true
 //suggetion navigation
 sug:boolean = true
 circleSug(){
@@ -136,8 +145,47 @@ updateFriendsList() {
 
   //this.friendRequestStatus[id] = true;;
 }
+
+acceptFriend(id: number) {
+  this.signalServe.acceptFriend(id, this.emailService.userInformation.id).subscribe({
+    next: (res) => {
+      this.updateTopChats();
+      console.log(res)
+    },
+    error: (error) => {
+      console.error('Error accepting friend:', error.message);
+    }
+  });
+}
+
+updateTopChats() {
+  this.emailService.getTopChats(this.emailService.userInformation.id).subscribe({
+    next: (friends: Register[]) => {
+      // Handle the updated friends list here
+      //this.pendingData= friends;
+      console.log('Updated Friends List:', friends);
+      this.pendingDataUpdates()
+    },
+    error: (error) => {
+      // Handle errors if any
+      console.error('Error fetching friends:', error);
+    }
+  });
 }
 
 
+pendingDataUpdates(){
+  this.emailService.getPendingFrinds(this.emailService.userInformation.id).subscribe({
+    next:(data:any)=>{
+    this.pendingData = data;
+    console.log(this.pendingData)
+    //this.emailService.getEmail(this.emailService.userInformation.id);
+    
+  
+  }
+ 
+  })
+}
 
 
+}

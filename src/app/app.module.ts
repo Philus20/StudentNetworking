@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ChatComponent } from './chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,7 +37,12 @@ import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { PendingComponent } from './pending/pending.component';
 import { FriendsComponent } from './friends/friends.component';
 import { MessageComponent } from './message/message.component';
-
+import {AngularFireModule} from '@angular/fire/compat'
+import { environmet } from '../environment';
+import { LComponent } from './l/l.component';
+import { RComponent } from './r/r.component';
+import { DComponent } from './d/d.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -64,7 +69,10 @@ import { MessageComponent } from './message/message.component';
     SuggestionsComponent,
     PendingComponent,
     FriendsComponent,
-    MessageComponent
+    MessageComponent,
+    LComponent,
+    RComponent,
+    DComponent
     
   ],
   imports: [
@@ -77,8 +85,10 @@ import { MessageComponent } from './message/message.component';
     FormsModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    AngularFireModule.initializeApp(environmet.firebase),
     CKEditorModule,
-    
+    NgbDropdownModule,
+    NgbModalModule,
     
     ToastrModule.forRoot({
       timeOut: 1000,

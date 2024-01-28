@@ -83,11 +83,13 @@ ngOnInit(){
           console.error("Reached here",error.error);
             // Handle the error here
              if(error.status==0){
-               this.toast.info('You may have sign up already','OOPS')
+               console.log(error+ 1);
+               this.toast.error('','check your internet connection')
                
             }
             else if(error.error = "user already exist"){
-              this.toast.error('','check your internet connection')
+              this.toast.info('You may have sign up already','OOPS')
+              console.log(error)
             }
         },
        })
