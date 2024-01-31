@@ -65,12 +65,28 @@
           
 		<div ngbDropdown class="d-inline-block">
 			<button type="button" class="btn btn-danger" id="dropdownBasic1" ngbDropdownToggle>
-				Toggle dropdown
+			 Settings &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
 			</button>
 			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-				<button ngbDropdownItem>Action - 1</button>
+				<!-- <button ngbDropdownItem>Action - 1</button>
 				<button ngbDropdownItem>Another Action</button>
-				<button ngbDropdownItem>Something else is here</button>
+				<button ngbDropdownItem>Something else is here</button> -->
+        
+          
+        
+          <button ngbDropdownItem  (click)="open()">Edit Profile</button>
+
+          <button ngbDropdownItem (click)="accountSettings()">Acount Settings</button>
+          <button ngbDropdownItem>Privacy</button>
+          <button ngbDropdownItem>FAQs</button>
+          <button ngbDropdownItem>Terms & Conditions</button>
+          <div class="dropdown-divider"></div>
+          <div class="">
+          <button ngbDropdownItem (click)="logout()">Logout</button>
+          </div>
+      
+  
+        
 			</div>
 	</div>
         </li>

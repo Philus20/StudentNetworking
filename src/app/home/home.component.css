@@ -10,7 +10,7 @@ li:hover{
 .dotsInfo{
     position: relative;
     bottom: -1rem;
-    left: 18rem;
+    left: 6rem;
 }
 .dots:hover{
     cursor: pointer;

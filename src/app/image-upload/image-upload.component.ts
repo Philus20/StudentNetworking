@@ -3,6 +3,7 @@ import { ImageService } from '../services/image.service';
 import { FileRes } from '../utils/file';
 import { SharedService } from '../services/shared.service';
 import { EmailService } from '../services/email.service';
+import { NgModel } from '@angular/forms';
 
 
 

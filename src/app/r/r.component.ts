@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseAuthService } from '../services/firebase-auth.service';
 import { Chat2Service } from '../services/chat2.service';
+import { NgbActiveModal,NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-r',
@@ -14,7 +15,7 @@ password:string = ""
 user:string=''
 messages: { user: string, message: string }[] = [];
 message:string=''
-constructor (private auth:FirebaseAuthService, public chat2:Chat2Service) {
+constructor (private auth:FirebaseAuthService, public chat2:Chat2Service,public modal:NgbActiveModal) {
 
 
 console.log("hello")

@@ -8,12 +8,12 @@
         <div class="row ">
           <!-- Avatar on the left -->
           <div class="col-md-3">
-            <img src="./../../assets/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mb-3" style="width: 60px; height: 60px;">
+            <img [src]="profileUrl" alt="User Avatar" class="img-fluid rounded-circle mb-3" style="width: 60px; height: 60px;">
           </div>
     
           <!-- Buttons on the right -->
           <div class="col-md-9  mt-3" style="text-align: right">
-            <button class="btn  mr-2">Post a Project</button>
+            <button class="btn btn-primary mr-2" (click)="hideEditor()" [style.display]="hideE?'inline':'none'">Hide input</button>
             <button class="btn btn-primary" (click)="showEditor()">Post a mentioning</button>
           </div>
           <div 
@@ -26,7 +26,7 @@
     </div>
     
 
-    <app-user-interest></app-user-interest>
+    <app-user-interest [profile]="profileUrl"></app-user-interest>
 
    
 
@@ -40,7 +40,7 @@
 
 
         <!-- User interests and location -->
-        <app-user-interest></app-user-interest>
+        <!-- <app-user-interest [profile]="profileUrl"> </app-user-interest> -->
 </div>
 
 
@@ -69,7 +69,7 @@
           </div> -->
 
            
-          <img src="{{ baseUrl + d.profilePictureName}}" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
+          <img [src]="profileUrl" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
           <div class="media-body">
               <span class="mt-0"><strong>{{d.firstName }} {{d.surname}}</strong></span>
               <p>Hey, how are you doing?</p>

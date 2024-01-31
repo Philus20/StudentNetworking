@@ -1,21 +1,22 @@
+<div *ngFor="let post of emailS.postInfoData">
 <div class="card mt-3">
     <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
             <!-- Avatar on the left -->
-            <img src="./../../assets/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 50px; height: 50px;">
+            <img [src]="profile" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 50px; height: 50px;">
 
             <!-- User details -->
             <div class="flex-grow-1 d-flex flex-column">
                 <!-- Name -->
                 <div class="ms-3">
-                    <h6 class="mb-0">John Doe</h6>
+                <h6 class="mb-0">{{post.firstName}}   {{post.surname}}</h6>
                 </div>
 
                 <!-- Timer icon below the name -->
                 <div class="text-muted ms-3 mt-1">
                   <span class="material-icons text-dark clock">
                       schedule
-                  </span>3 min ago
+                  </span>{{post.postDate| date:'shortTime'}}
                 </div>
             </div>
 
@@ -57,8 +58,8 @@
 
                       </span>
 
-                  <span style="border: #3e7df3 solid 10px; background:#3e7df3; border-radius:3px;">
-                      <span class="material-icons text-white" style="width: 18px; height: 16px;">
+                  <span style="border: #3e7df3 solid 10px; background:#3e7df3; border-radius:3px;" (click)="goToMessage(post.email)">
+                      <span class="material-icons text-white mail" style="width: 18px; height: 16px;">
                           mail
                           </span>
 
@@ -70,9 +71,9 @@
       </div>
 
       <div>
-        <br>
+        
         <h5>
-          Senior Wordpress Developer
+          {{post.programme}}
         </h5>
       </div>
       <div class="ml-auto">
@@ -82,7 +83,7 @@
     </div>
     <br>
     
-    <div [innerHTML]="postData">
+    <div [innerHTML]="post.content">
       <!-- User's dynamic content -->
      
     
@@ -133,4 +134,5 @@
       </div>
     </div>
     </div>
+</div>
 </div>

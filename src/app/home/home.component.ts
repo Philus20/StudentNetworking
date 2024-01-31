@@ -5,7 +5,6 @@ import { SharedService } from '../services/shared.service';
 import { Register } from '../utils/IRegister';
 import { SignalrService } from '../services/signalr.service';
 import { Friendship } from '../utils/Friendship';
-import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -23,20 +22,8 @@ export class HomeComponent implements OnInit {
   loginEmail:string = ''
   loginPass:string = ''
 
-constructor(public emailService:EmailService, public imageService: ImageService, private sService: SharedService,private signalServe:SignalrService,
-  private modal:NgbModal
-  ){
-  const storeEmail = localStorage.getItem('e');
-  const storePass = localStorage.getItem('p');
-  if (storeEmail !== null && storePass !== null) {
-    this.loginEmail = storeEmail;
-    this.loginPass = storePass;
-  console.log(this.loginEmail + this.loginPass + ' main ');
- // this.emailService.checking(this.dbPass, this.loginPass);
-  // console.log('vaue:' + this.emailService.checkingRes);
-
- // this.data(this.loginPass,this.dbPass)
-  }
+constructor(public emailService:EmailService, public imageService: ImageService, private sService: SharedService,private signalServe:SignalrService){
+  
   this.emailService.getFriends(this.emailService.userInformation.id).subscribe({
     next: (friends: Register[]) => {
       // Handle the updated friends list here
@@ -66,9 +53,6 @@ constructor(public emailService:EmailService, public imageService: ImageService,
        
   // this.profileUrl=`${this.emailService.fileApiUrl}/${}`
 }
-open(content:string){
-  this.modal.open(content)
-}
 ngOnInit(){
   console.log('test')
   console.log('here  ')
@@ -83,8 +67,10 @@ ngOnInit(){
   this.sService.shareName$.subscribe((val)=>{
     
     this.profileUrl=`${this.emailService.fileApiUrl}/${val}`
+   
   }
   )
+  
 
   this.pendingDataUpdates()
 }

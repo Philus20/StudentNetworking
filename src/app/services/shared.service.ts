@@ -43,4 +43,9 @@ export class SharedService {
   emitMessage(content:string){
     this.shareMessage.next(content)
   }
+  private pic = new Subject<string>();
+   pic$ = this.pic.asObservable()
+  emitProfilePic(url:string){
+this.pic.next(url)
+  }
 }

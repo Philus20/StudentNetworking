@@ -11,6 +11,7 @@ import { SharedService } from '../services/shared.service';
 export class CenterComponent {
 topChats:Register[]=[];
 baseUrl:string = 'http://localhost:5293/api/Files/'
+profileUrl:string = ''
   constructor(private emailService:EmailService, private sSharedServe:SharedService){
    
 
@@ -24,12 +25,8 @@ baseUrl:string = 'http://localhost:5293/api/Files/'
         console.error('Error fetching initial top chats:', error);
       }
     });
-    // this.emailService.getTopChats(emailService.userInformation.id).subscribe({
-    //   next:(data:any)=>{
-    //     this.topChats=data
-    //     console.log(this.topChats)
-    //    this.topChats = this.emailService.chats$.subscribe
-      
+
+   this.profileUrl =this.baseUrl+this.emailService.userInformation.profilePictureName
     
   }
 
@@ -45,12 +42,27 @@ baseUrl:string = 'http://localhost:5293/api/Files/'
         console.error('Error fetching top chats:', error);
       }
     });
+
   }
 
   ckEditor:boolean=false
-
+hideE : boolean = false;
   showEditor(){
     this.ckEditor = true
+    this.hideE=true;
+
+    this.sSharedServe.pic$.subscribe({
+      next: x=>{
+   this.profileUrl=x
+   console.log(this.profileUrl)
+       },
+       error:x=>{console.log(x)}})
+     }
+  
+  hideEditor(){
+    this.ckEditor = false;
+    this.hideE=false
   }
   
+
 }

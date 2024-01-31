@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ChatComponent } from './chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -43,6 +43,8 @@ import { LComponent } from './l/l.component';
 import { RComponent } from './r/r.component';
 import { DComponent } from './d/d.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AccountComponent } from './account/account.component';
 
 
 @NgModule({
@@ -72,7 +74,9 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     MessageComponent,
     LComponent,
     RComponent,
-    DComponent
+    DComponent,
+    EditProfileComponent,
+    AccountComponent,
     
   ],
   imports: [
@@ -90,6 +94,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     NgbDropdownModule,
     NgbModalModule,
     
+    
+    
     ToastrModule.forRoot({
       timeOut: 1000,
       positionClass: 'toast-top-center',
@@ -97,7 +103,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     })
 
   ],
-  providers: [SignalrService,AuthService],
+  providers: [SignalrService,AuthService,NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

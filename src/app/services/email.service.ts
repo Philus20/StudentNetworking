@@ -8,6 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 import { Login } from '../utils/Ilogin';
 import { LoginService } from './login.service';
 import { Friendship } from '../utils/Friendship';
+import { Edit } from '../utils/edit';
+import { PostB,PostInfo } from '../utils/post';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,9 +18,11 @@ import { Friendship } from '../utils/Friendship';
 export class EmailService {
   //student!: string; 
 loginInfo:Register[]=[] ;
+postInfoData:PostInfo[]=[]
 checkingRes!:Boolean
 userInformation!:Register
-Friends:Friendship[] =[]
+Posts:PostB[]=[]
+Friends!:Friendship[] ;
 private friendsSubject = new BehaviorSubject<Register[]>([]);
 friends$ = this.friendsSubject.asObservable();
 
@@ -26,23 +30,7 @@ api = "http://localhost:5293/Students"
 fileApiUrl:string ='http://localhost:5293/api/Files'
 
   constructor(private http:HttpClient, private loginService:LoginService) {
-    // this.student = ((localStorage.getItem('user')!));
-    // const parsedUser: Register = JSON.parse(this.student);
-    //     this.loginInfo =[ parsedUser]
-    //     localStorage.clear
-   
-    
-
-   
-    
-    //  console.log(this.loginInfo)
-    //  console.log(this.loginService.nam)
-
-   }
-   //calling suggestion controller
-  //  getFriends(id: number) {
-  //   return this.http.get(`http://localhost:5293/Suggestion/${id}/circle`);
-  // }
+  }
   getFriends(id: number): Observable<Register[]> {
     // Make API call to get friends
     this.http.get<Register[]>(`http://localhost:5293/Suggestion/${id}/circle`)
@@ -95,7 +83,19 @@ getTopChats(id: number): Observable<Register[]> {
   
     }
 
-    
+    editProfile(data:any, id:number){
+      return this.http.put(`http://localhost:5293/Students/${id}`,data)
+    }
+
+    AddPost(data:any){
+     return this.http.post('http://localhost:5293/api/Post',data)
+    }
+    getPosts(id:number){
+      return this.http.get(`http://localhost:5293/api/Post/${id}`);
+    }
+    getPostInfo(id:number){
+      return this.http.get(`http://localhost:5293/api/PostInfo/${id}`);
+    }
 
  // getUserById(pass1:string) {
   //   this.getEmail(email).subscribe({

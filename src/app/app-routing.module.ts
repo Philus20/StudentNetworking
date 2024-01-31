@@ -9,11 +9,14 @@ import { PendingComponent } from './pending/pending.component';
 import { MessageComponent } from './message/message.component';
 import { LComponent } from './l/l.component';
 import { RComponent } from './r/r.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
  //{path:'', component: MainPageComponent},
   {path:'log', component:LoginComponent},
   {path:'reg', component:RegisterComponent},
+  {path:'edit', component:EditProfileComponent},
  // {path:'main', component:MainPageComponent},
    {path:'main', component:MainPageComponent,canActivate:[AuthService] },
 
@@ -21,7 +24,8 @@ const routes: Routes = [
 {path:'mes',component:MessageComponent},
 {path:'',component:LoginComponent},
 {path:'l',component:LComponent},
-{path:'r',component:RComponent}
+{path:'r',component:RComponent},
+{path:'account', component:AccountComponent}
 ];
 
 @NgModule({
