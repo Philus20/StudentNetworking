@@ -106,7 +106,7 @@ export class LoginComponent {
         this.toastr.error("oops",'Mismatch Logins')
       }
       this.route.navigate(['/main']);
-      
+  
      
     } else {
       console.error('backEndData or its password property is undefined');

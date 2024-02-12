@@ -1,9 +1,11 @@
 
 export interface Message{
-//id?:number;
-SenderEmail? :string,
-ReceiverEmail ?:string,
-Subject ?: string
+id?:number;
+senderEmail? :string,
+receiverEmail ?:string,
+subject : string,
+status?:string,
+time?:Date
 // Status ?: string
 // time?:Date
 //<p>Date only: {{ newMessage.timestamp | date:'yyyy-MM-dd' }}</p>
@@ -15,5 +17,11 @@ Subject ?: string
 // public string ReceiverEmail { get; set; }
 // public string Subject { get; set; }
 // public string Status { get; set; }
+// public string SenderEmail { get; set; }
 
+// public string ReceiverEmail { get; set; }
+// public string Subject { get; set; }
+// public string Status { get; set; }
+
+// public DateTime time { get; set; }
 // public DateTime time { get; set; }

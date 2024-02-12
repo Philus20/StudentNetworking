@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class Chat2Service {
   private hubConnection!: signalR.HubConnection;
-  messageReceived = new Subject<{ name:string, user: string, message: string }>();
+  messageReceived = new Subject<{ name:string, user: string, message: string}>();
 
   constructor() { }
 

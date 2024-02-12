@@ -1,129 +1,114 @@
-  <!-- Right Section -->
-  <app-navbar></app-navbar>
-  <div style="margin-bottom: 100px;"></div>
-  <div class="container-fluid"><div class="row">
-    <div class="col-md-3">
-       <app-right></app-right> 
-    </div>
-  <div class="col-md-6">
-    <div class="card">
-        <!-- Chat Header -->
-        <div class="card-header d-flex justify-content-between align-items-center bg-light p-3">
-            
-            
-            <!-- Center: User's information -->
-            <div class="d-flex align-items-center">
-                <!-- User's avatar -->
-                <img src="{{activeUserProfile}}" alt="User Avatar" class="avatar-img mr-2" style="width: 40px; height: 40px;">
-                
-                <!-- User's name and online status -->
-                <div>
-                    <h6 class="mb-0">{{activeUserFirstName}} {{activeUserLastName}}</h6>
-                    <small class="text-success">Online</small>
-                </div>
-            </div>
-              <!-- Right side: Three vertical dots icon -->
-            <i class="fas fa-ellipsis-v"></i>
-            
+<!-- Right Section -->
+<app-navbar></app-navbar>
+<div style="margin-bottom: 100px;"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <app-right></app-right>
         </div>
-  
-  <!-- Chat Body -->
-  <div class="card-body">
-    <!-- Chat Window -->
-    <div class="chat-container" style="height: 60vh;">
-      <!-- Left Column (User's side) -->
-      <div class="row user-chat-row">
-          <div class="col-md-8">
-              <div class="d-flex align-items-end justify-content-start chat-bubble-container">
-                  <!-- User's Avatar on the left side -->
-                  <div *ngFor="let msg of messages">
-                  <!-- <img src="{{activeUserProfile}}" alt="User Avatar" class="img-fluid rounded-circle me-2" style="width: 40px; height: 40px;"> -->
-  
-                  <!-- User's Chat messages container -->
-                  
-                       
-                            <div class="chat-messages user-chat">
-                                <!-- User's messages -->
-                                <div class="message my-message">
-                             {{ msg.message }}
-                          </div>
-                      </div>
-                      <p class="text-muted message-time">20 minutes ago</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  
-      <!-- Right Column (Another User's side) -->
-      <div class="row other-chat-row">
-          <div class="col-md-8 offset-md-4">
-              <div class="d-flex align-items-end justify-content-end chat-bubble-container">
-                  <!-- Another User's Chat messages container -->
-                  <div class="message other-message" *ngIf="cont ">
-                  <div class="chat-messages other-chat">
-                      <!-- Another user's messages -->
-                     
-                          <!-- <p>Not much, just working on some stuff.</p> -->
-                          <p>{{cont}}</p>
-                      </div>
-                      <p class="text-muted message-time">Sat, Aug 24, 1:10pm</p>
-                  </div>
-  
-                  <!-- Another User's Avatar on the right side -->
-                  <!-- <img src="{{baseUrl + this.emailS.userInformation.profilePictureName }}" alt="Another User Avatar" class="img-fluid rounded-circle ms-2" style="width: 40px; height: 40px;"> -->
-              </div>
-          </div>
-      </div>
-  </div>
-  
-  
-  
-  
-   <!-- Input Field and Send Button -->
-<div class="input-group mt-3">
-  <input type="text" class="form-control chat-input" [(ngModel)]="message" placeholder="Type your message...">
-  <div class="input-group-append">
-      <button class="btn btn-primary chat-btn" type="button" (click)="sendMessage()" >Send</button>
-  </div>
-
-  <!-- Emoji Icon with Emoji Picker -->
-  <div class="input-group-append">
-      <a class="btn btn-secondary emoji-picker-btn" type="button">
-          <i class="bi bi-emoji-smile" style="color: yellow;"></i>
-      </a>
-  </div>
-
-  <!-- Camera Icon -->
-  <div class="input-group-append">
-      <a class="btn btn-secondary" type="button" id="cameraBtn">
-          <i class="bi bi-camera"></i>
-      </a>
-  </div>
-
-  <!-- File Clipper Icon -->
-  <div class="input-group-append">
-      <a class="btn btn-secondary emoji-picker-btn clipper-btn" style="transform: rotate(-90deg);">
-          <i class="bi bi-paperclip"></i>
-      </a>
-  </div>
-</div>
-
-      <!-- Add this modal HTML at the end of your body tag -->
- 
-  
-  
-  
-  </div>
-  </div>
-  </div>
-  
-
-  <div *ngFor="let msg of messages">
-    {{ msg.name }}: {{ msg.message }}
-  </div>
-
- 
+        <div class="col-md-6">
+            <div class="card">
+                <!-- Chat Header -->
+                <div class="card-header d-flex justify-content-between align-items-center bg-light p-3">
 
 
- 
-  
+                    <!-- Center: User's information -->
+                    <div class="d-flex align-items-center">
+                        <!-- User's avatar -->
+                        <img src="{{activeUserProfile}}" alt="User Avatar" class="avatar-img mr-2"
+                            style="width: 40px; height: 40px;">
+
+                        <!-- User's name and online status -->
+                        <div>
+                            <h6 class="mb-0">{{activeUserFirstName}} {{activeUserLastName}}</h6>
+                            <small class="text-success">Online</small>
+                        </div>
+                    </div>
+                    <!-- Right side: Three vertical dots icon -->
+                    <i class="fas fa-ellipsis-v"></i>
+
+                </div>
+
+                <!-- Chat Body -->
+                <div class="card-body">
+                    <!-- Chat Window -->
+                    <div class="chat-container" style="height: 60vh; overflow-x: hidden; overflow-y: scroll;">
+                        <!-- Left Column (User's side) -->
+                        <div class="row user-chat-row">
+                            <div class="col-md-8">
+                                <div class=" chat-bubble-container ">
+                                    <!-- User's Avatar on the left side -->
+                                    <div *ngFor="let x of disMess">
+
+                                        <div class="chat-messages user-chat" *ngIf="!x.user">
+                                            <!-- User's messages -->
+                                            <div class="message my-message">
+                                                {{ x.subject}}
+                                            </div>
+                                            <p class="text-muted message-time">{{x.time}}</p>
+                                        </div>
+
+
+                                        <div class="message other-message" *ngIf="x.user">
+                                            <div class="chat-messages other-chat">
+                                                <!-- Another user's messages -->
+
+                                                <!-- <p>Not much, just working on some stuff.</p> -->
+                                                <p>{{x.subject}}</p>
+                                            </div>
+                                            <p class="text-muted message-time">{{x.time | date: 'shortDate'}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column (Another User's side) -->
+
+
+                    </div>
+                </div>
+
+
+
+
+                <!-- Input Field and Send Button -->
+                <div class="input-group mt-3">
+                    <input type="text" class="form-control chat-input" [(ngModel)]="message"
+                        placeholder="Type your message...">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary chat-btn" type="button" (click)="sendMessage()">Send</button>
+                    </div>
+
+                    <!-- Emoji Icon with Emoji Picker -->
+                    <div class="input-group-append">
+                        <a class="btn btn-secondary emoji-picker-btn" type="button">
+                            <i class="bi bi-emoji-smile" style="color: yellow;"></i>
+                        </a>
+                    </div>
+
+                    <!-- Camera Icon -->
+                    <div class="input-group-append">
+                        <a class="btn btn-secondary" type="button" id="cameraBtn">
+                            <i class="bi bi-camera"></i>
+                        </a>
+                    </div>
+
+                    <!-- File Clipper Icon -->
+                    <div class="input-group-append">
+                        <a class="btn btn-secondary emoji-picker-btn clipper-btn" style="transform: rotate(-90deg);">
+                            <i class="bi bi-paperclip"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <a class="btn btn-primary" (click)="navigateToRight()">go to right</a>

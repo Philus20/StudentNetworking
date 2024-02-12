@@ -3,13 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable,of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiResponse } from '../utils/api-response';
-import { Register } from '../utils/IRegister';
-import { BehaviorSubject } from 'rxjs';
+import { Register,TopChatAddCounting  } from '../utils/IRegister';
+import { BehaviorSubject,Subject } from 'rxjs';
 import { Login } from '../utils/Ilogin';
 import { LoginService } from './login.service';
 import { Friendship } from '../utils/Friendship';
 import { Edit } from '../utils/edit';
 import { PostB,PostInfo } from '../utils/post';
+
+import { Message } from '../utils/Message';
+import { ShowMessage } from '../utils/ShowMessage';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +29,8 @@ Posts:PostB[]=[]
 Friends!:Friendship[] ;
 private friendsSubject = new BehaviorSubject<Register[]>([]);
 friends$ = this.friendsSubject.asObservable();
-
+disMess:ShowMessage	[]=[]
+backendMessages:Message[]=[]
 api = "http://localhost:5293/Students"
 fileApiUrl:string ='http://localhost:5293/api/Files'
 
@@ -96,7 +101,44 @@ getTopChats(id: number): Observable<Register[]> {
     getPostInfo(id:number){
       return this.http.get(`http://localhost:5293/api/PostInfo/${id}`);
     }
+    //posting messages
+     sendMess = new BehaviorSubject<ShowMessage[]>([]);
+    sendMes$ = this.sendMess.asObservable();
 
+    
+postMessag(data:Message){
+
+  return this.http.post('http://localhost:5293/api/Message',data)
+}
+
+getMessage(email:string,active:string){
+  return this.http.get(`http://localhost:5293/api/Message/${email}/${active}`)
+}
+
+topChats2:TopChatAddCounting[]=[]
+topChats = new BehaviorSubject<TopChatAddCounting[]>([])
+topChats$ = this.topChats.asObservable()
+
+emitTopchats(data:TopChatAddCounting[]){
+this.topChats.next(data)
+}
+
+  editMessage(id:number){
+  return this.http.put(`http://localhost:5293/api/Message/${id}`,id)
+}
+
+ sharedNumber = new BehaviorSubject<number>(0);
+ sharedNumber$ = this.sharedNumber.asObservable()
+cheatToUpdateUnread(){
+this.sharedNumber.next(1);
+}
+private errorNum = new Subject<number>();
+errorNum$ = this.errorNum.asObservable();
+mainPageLoader(num:number){
+
+  this.errorNum.next(num);
+
+}
  // getUserById(pass1:string) {
   //   this.getEmail(email).subscribe({
   //     next: (data:any) => {

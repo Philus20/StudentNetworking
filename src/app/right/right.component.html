@@ -11,7 +11,7 @@
        <div class="card-body">
         <!-- Avatar, Name, and Interest -->
         
-        <ng-container *ngFor="let d of topChats">
+        <ng-container *ngFor="let d of topChats2">
         <div class="d-flex justify-content-between align-items-center" >
           <!-- Avatar on the left -->
           
@@ -30,7 +30,7 @@
             </div>
             <div class="d-flex flex-column align-items-end">
               <small class="text-muted">12:30 PM</small>
-              <span class="badge badge-primary " style="color: red;">1</span>
+              <span class="badge badge-primary " style="color: red;">{{d.unread}}</span>
             </div>
           
           <hr class="my-2">

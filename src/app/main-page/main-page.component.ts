@@ -17,52 +17,27 @@ export class MainPageComponent {
   dbPass:string = '';
   LoginData !: Login  // Initialize LoginData with default values
   backEndData !: Register
+  showPage!:boolean;
   constructor(private toastr:ToastrService ,private emailService:EmailService,private router:Router, private chatS:ChatService){
-//toastr.success('Welcome','Login Successfull')  
-///this.refreshingData()
-          this.chatS.myEmail =   this.emailService.userInformation.email
-  }
- refreshingData(){
-  const loginData = localStorage.getItem('loginData');
-const backEnd = localStorage.getItem('backEndData')
-if (loginData && backEnd) {
-  const loginUser: Register = JSON.parse(loginData);
-  const backUser:Register = JSON.parse(backEnd)
-  console.log(backUser)
-console.log(loginUser)
- 
-   
-    this.emailService.userInformation = backUser;
-    if(!  this.emailService.checking(backUser.password, loginUser.password)){
-      this.toastr.error("oops",'Mismatch Logins')
-    }
-    this.router.navigate(['/main']);
-    
-   
-  } else {
-    console.error('backEndData or its password property is undefined');
-  }
- }
- me(){
-  console.log('fjjj')
-  localStorage.removeItem('loginData')
+
+this.chatS.myEmail =   this.emailService.userInformation.email
   
-  this.router.navigate(['/log']);
- }
-  ngOnInit(){
-    //  const storedPassword = localStorage.getItem('e');
-    //  const dbPassword = localStorage.getItem('p');
-    //  if (storedPassword !== null && dbPassword !== null) {
-    //    this.loginPass = storedPassword;
-    //    this.dbPass = dbPassword;
-    //  console.log(this.loginPass + this.dbPass + ' main ');
-    // this.emailService.checking(this.dbPass, this.loginPass);
-     // console.log('vaue:' + this.emailService.checkingRes);
-
-    // this.data(this.loginPass,this.dbPass)
   }
+  
 
-
+  ngOnInit(){
+    this.emailService.getEmail(this.emailService.userInformation.email).subscribe({
+      next: (x) => {
+        this.showPage = true
+      },
+      error:(err)=>{
+        if(err.status==0){
+          this.showPage = false;
+        }
+      }
+    }
+    )
+  }
 
 }
 

@@ -21,6 +21,7 @@ export class UserInterestComponent {
          }
 
          ngOnInit(): void {
+          
           this.emailS.getPosts(this.emailS.userInformation.id).subscribe({
             next: (posts: any) => {
               
@@ -33,7 +34,7 @@ export class UserInterestComponent {
                 this.emailS.getPostInfo(post.userId).subscribe({
                   next: (data: any) => {
                     this.temp = data;
-     
+                      
                     if (this.temp) {
                       const add: PostInfo = {
                         userId: post.id,
@@ -58,9 +59,16 @@ export class UserInterestComponent {
                 });
               }
             }
+            this.emailS.mainPageLoader(1)
             },
             error: (error) => {
               console.log(error);
+           
+            if(error.status==0){
+               this.emailS.mainPageLoader(0)
+
+            }
+
             }
           });
         

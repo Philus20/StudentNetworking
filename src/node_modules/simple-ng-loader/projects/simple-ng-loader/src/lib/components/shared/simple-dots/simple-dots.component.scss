@@ -1,0 +1,45 @@
+  
+  .dots {
+    color: orange;
+    font-size: 20px;
+    margin: 100px auto;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    text-indent: -9999em;
+    -webkit-animation: dodots 1.3s infinite linear;
+    animation: dodots 1.3s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  @keyframes dodots {
+    0%,
+    100% {
+      box-shadow: 0 -3em 0 0.2em blue, 2em -2em 0 0 gold, 3em 0 0 -1em #39ff14, 2em 2em 0 -1em #964000, 0 3em 0 -1em #fe7f9c, -2em 2em 0 -1em teal, -3em 0 0 -1em #8d021f, -2em -2em 0 0 yellow;
+    }
+    12.5% {
+      box-shadow:0 -3em 0 0 blue, 2em -2em 0 0.2em gold, 3em 0 0 0 #39ff14, 2em 2em 0 -1em #964000, 0 3em 0 -1em #fe7f9c, -2em 2em 0 -1em teal, -3em 0 0 -1em #8d021f, -2em -2em 0 -1em yellow;
+    }
+    25% {
+      box-shadow:0 -3em 0 -0.5em blue, 2em -2em 0 0 gold, 3em 0 0 0.2em #39ff14, 2em 2em 0 0 #964000, 0 3em 0 -1em #fe7f9c, -2em 2em 0 -1em teal, -3em 0 0 -1em #8d021f, -2em -2em 0 -1em yellow;
+    }
+    37.5% {
+      box-shadow:0 -3em 0 -1em blue, 2em -2em 0 -1em gold, 3em 0 0 0 #39ff14, 2em 2em 0 0.2em #964000, 0 3em 0 0 #fe7f9c, -2em 2em 0 -1em teal, -3em 0 0 -1em #8d021f, -2em -2em 0 -1em yellow;
+    }
+    50% {
+      box-shadow: 0 -3em 0 -1em blue, 2em -2em 0 -1em gold, 3em 0 0 -1em #39ff14, 2em 2em 0 0 #964000, 0 3em 0 0.2em #fe7f9c, -2em 2em 0 0 teal, -3em 0 0 -1em #8d021f, -2em -2em 0 -1em yellow;
+    }
+    62.5% {
+      box-shadow: 0 -3em 0 -1em blue, 2em -2em 0 -1em gold, 3em 0 0 -1em #39ff14, 2em 2em 0 -1em #964000, 0 3em 0 0 #fe7f9c, -2em 2em 0 0.2em teal, -3em 0 0 0 #8d021f, -2em -2em 0 -1em yellow;
+    }
+    75% {
+      box-shadow: 0 -3em 0 -1em blue, 2em -2em 0 -1em gold, 3em 0 0 -1em #39ff14, 2em 2em 0 -1em #964000, 0 3em 0 -1em #fe7f9c, -2em 2em 0 0 teal, -3em 0 0 0.2em #8d021f, -2em -2em 0 0 yellow;
+    }
+    87.5% {
+      box-shadow: 0 -3em 0 0 blue, 2em -2em 0 -1em gold, 3em 0 0 -1em #39ff14, 2em 2em 0 -1em #964000, 0 3em 0 -1em #fe7f9c, -2em 2em 0 0 teal, -3em 0 0 0 #8d021f, -2em -2em 0 0.2em yellow;
+    }
+  }

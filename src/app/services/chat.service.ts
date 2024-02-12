@@ -85,14 +85,14 @@ onlineUserUrl = 'http://localhost:5293/'
   }
 
   async sendMessage(content: string) {
-    const message: Message = {
-      SenderEmail: this.myEmail,
-      ReceiverEmail: 'd@gmail.com',
-      Subject: content
-    };
+    // const message: Message = {
+    //   enderEmail: this.myEmail,
+    //   ReceiverEmail: 'd@gmail.com',
+    //   Subject: content
+    // };
   
     try {
-      await this.chatConnection?.invoke('ReceiveMessage', message);
+      // await this.chatConnection?.invoke('ReceiveMessage', message);
       // Add any other logic you need after sending the message
     } catch (error) {
       console.error('Error sending message:', error);
@@ -105,9 +105,9 @@ onlineUserUrl = 'http://localhost:5293/'
   }
   sendPrivateMessage(to: string, content: string) {
     const message: Message = {
-        SenderEmail: this.myEmail,
-        ReceiverEmail: to,
-        Subject:content
+        senderEmail: this.myEmail,
+        receiverEmail: to,
+        subject:content
     };
 
     if (!this.privateMessageInitiated) {

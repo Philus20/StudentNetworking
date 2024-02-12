@@ -9,3 +9,11 @@ export interface Register {
     registrationDate:Date;
     programme:string;
   }
+export interface TopChatAddCounting {
+    id : number;
+    firstName: string;
+    surname?: string;
+    profilePictureName:string;
+    unread:number;
+    
+  }

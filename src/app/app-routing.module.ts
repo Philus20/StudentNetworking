@@ -11,6 +11,7 @@ import { LComponent } from './l/l.component';
 import { RComponent } from './r/r.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AccountComponent } from './account/account.component';
+import { RightComponent } from './right/right.component';
 
 const routes: Routes = [
  //{path:'', component: MainPageComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
 {path:'',component:LoginComponent},
 {path:'l',component:LComponent},
 {path:'r',component:RComponent},
-{path:'account', component:AccountComponent}
+{path:'account', component:AccountComponent},
+{path:'right', component:RightComponent}
 ];
 
 @NgModule({

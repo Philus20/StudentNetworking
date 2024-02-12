@@ -1,0 +1,30 @@
+.loader2 {
+    width: 100px;
+    height: 100px;
+    left:50%;
+    top:50%;
+    position:absolute;
+    background: red;
+    animation: mymove 2s infinite linear;
+        transform: translateZ(0);
+            border-radius: 50%;
+  
+  }
+
+  @keyframes mymove {
+    0%{
+    box-shadow:1px 1px yellow;
+    
+    }
+     25% {
+          box-shadow: 0 -3em 0 0 green, 2em -2em 0 0.2em teal, 3em 0 0 0 blue, 2em 2em 0 -1em violet, 0 3em 0 -1em purple, -2em 2em 0 -1em orange, -3em 0 0 -1em red, -2em -2em 0 -1em gold;
+        }
+    
+    75%{      box-shadow: 0 -3em 0 0.2em gold, 2em -2em 0 0em green, 3em 0 0 -1em teal, 2em 2em 0 -1em blue, 0 3em 0 -1em violet , -2em 2em 0 -1em purple, -3em 0 0 -1em orange, -2em -2em 0 0 red;
+    }
+      from {    opacity: 1;
+    }
+      to {    opacity: 0.5;
+    }
+    }
+    

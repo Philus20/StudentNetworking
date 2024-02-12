@@ -3,6 +3,7 @@
 import { Component } from '@angular/core';
 import { FinalService } from './services/final.service';
 import {Chat2Service} from './services/chat2.service'
+import { EmailService } from './services/email.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,17 @@ export class AppComponent {
   user!: string;
   message!: string;
   messages: { user: string, message: string }[] = [];
+  tab!:boolean;
 
-  constructor(private signalRService: Chat2Service) { }
+  constructor(private signalRService: Chat2Service,private emailS:EmailService) { 
+this.emailS.errorNum$.subscribe(x=>{
+if(x==0 || x==1){
+ this.tab=false
+}
+
+})
+
+  }
 
   ngOnInit() {
     //this.signalRService.startConnection();

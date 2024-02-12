@@ -1,0 +1,61 @@
+/* HTML: <div class="loader"></div> */
+
+.page{
+
+   
+}
+.main{
+   background-color: black;
+   height: 100vh;
+   
+}
+
+.loader {
+    width: 500px;
+    height: 50px;
+    margin-left:2rem ;
+    background: 
+      linear-gradient(90deg,#0001 33%,#0005 50%,#0001 66%)
+      #272626;
+    background-size:300% 100%;
+    animation: l1 1s infinite linear;
+    margin-bottom: 2rem;
+  }
+.loader1 {
+    width: 1000px;
+    height: 232px;
+    margin-left: 31rem;
+    background: 
+      linear-gradient(90deg,#0001 33%,#0005 50%,#0001 66%)
+      #272626;
+    background-size:300% 100%;
+    animation: l1 1s infinite linear;
+    margin-bottom: 2rem;
+  }
+.loader2 {
+   position: absolute;
+    right: 0;
+    margin-bottom: 2rem;
+    width: 700px;
+    height: 200px;
+    background: 
+      linear-gradient(90deg,#0001 33%,#0005 50%,#0001 66%)
+      #272626;
+    background-size:300% 100%;
+    animation: l1 1s infinite linear;
+  }
+.loader3 {
+   position: relative;
+    left: 0;
+    
+    width: 200px;
+    height: 200px;
+    background: 
+      linear-gradient(90deg,#0001 33%,#0005 50%,#0001 66%)
+      #272626;
+    background-size:300% 100%;
+    animation: l1 1s infinite linear;
+  }
+  @keyframes l1 {
+    0% {background-position: right}
+  }

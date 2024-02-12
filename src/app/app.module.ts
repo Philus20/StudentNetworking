@@ -45,7 +45,7 @@ import { DComponent } from './d/d.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AccountComponent } from './account/account.component';
-
+import { UppyAngularDashboardModule, UppyAngularDragDropModule,UppyAngularStatusBarModule,  UppyAngularProgressBarModule} from '@uppy/angular';
 
 @NgModule({
   declarations: [
@@ -93,6 +93,12 @@ import { AccountComponent } from './account/account.component';
     CKEditorModule,
     NgbDropdownModule,
     NgbModalModule,
+    UppyAngularDashboardModule,
+    UppyAngularStatusBarModule,
+  
+    UppyAngularDragDropModule,
+    UppyAngularProgressBarModule,
+    
     
     
     
