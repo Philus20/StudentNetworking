@@ -1,0 +1,121 @@
+<!---------------- Main Content ------------------------->
+
+
+<!-- Left Side Section -->
+
+
+<!-- Add your content for the left section here -->
+
+<div class="card">
+  <!-- Top part of the card with different color -->
+  <div class="card-header text-center "
+    style="padding: 15px; margin:0; background: linear-gradient(to bottom, #007bff 50%, #ffffff 50%); color: #fff;">
+    <img [src]="profileUrl" alt="User Avatar" class="img-fluid rounded-circle mb-3"
+      style="width: 100px; height: 100px;">
+  </div>
+
+  <div class="card-body text-center">
+    <!-- User Details -->
+    <h5 class="card-title">{{emailService.userInformation.firstName}}</h5>
+    <p class="card-text">Skills or Interests</p>
+    <app-image-upload></app-image-upload>
+    <!-- Followers and Following -->
+
+    <!-- <div class="col">
+              <p class="mb-0">Following</p>
+              <p class="font-weight-bold">100</p>
+            </div>
+            <div class="col">
+              <p class="mb-0">Followers</p>
+              <p class="font-weight-bold">500</p>
+            </div>
+              <hr> -->
+
+    <!-- View Profile Button -->
+    <!-- <a href="#" class="primary  mt-3">View Profile</a> -->
+  </div>
+</div>
+
+<div class="card mt-5">
+  <div class="dotsInfo" *ngIf="showDotsInfo">
+    <ul>
+      <li>
+        <a (click)="circleSug()" class="btn btn-primary me-3" [ngClass]="{'btn btn-primary':isActive}">suggestions</a>
+        <a (click)="circlePen()" class="btn btn-primary">pending</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #fff;">
+    <!-- Heading on the left -->
+    <h5 class="mb-0">Circles</h5>
+    <!-- Three dots on the right -->
+    <span class="dots" (click)="toggleDotsInfo()" style="color: red;">&#8942;</span>
+
+  </div>
+
+
+
+  <div class="card-body">
+    <!-- Avatar, Name, and Interest for suggestions -->
+    <ng-container *ngIf="!sug">
+      <div *ngFor="let student of suggestions">
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Avatar on the left -->
+          <img src="{{ baseUrl + student.profilePictureName }}" alt="User Avatar" class="img-fluid rounded-circle mr-3"
+            style="width: 40px; height: 40px;">
+
+          <!-- Name and Interest -->
+          <div class="text-left">
+            <h6 class="mb-1">{{ student.firstName }} </h6>
+            <p class="mb-0 text-muted">{{ student.programme }} </p>
+          </div>
+
+          <!-- Icon at the extreme right -->
+          <!-- <div class="text-right" style="border: #bdbebd solid 1px; padding: 4px;">
+                    <button *ngIf="!friendRequestStatus[student.id]" class="btn btn-danger" (click)="sendingFriendReq(student.id)">
+                      <span class="material-icons text-dark plus">add</span>
+                    </button>
+                    <button *ngIf="friendRequestStatus[student.id]" class="btn btn-danger" disabled>
+                      Sent
+                    </button>
+                  </div> -->
+          <div class="text-right" style="border: #bdbebd solid 1px; padding: 4px;">
+            <a class="btn btn-primary" (click)="sendingFriendReq(student.id)">
+              <span class="material-icons text-white-center plus">add</span>
+
+            </a>
+          </div>
+
+
+
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Avatar, Name, and Interest for pending friends -->
+    <ng-container *ngIf="sug">
+      <div *ngFor="let friend of pendingData">
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Avatar on the left -->
+          <img src="{{ baseUrl + friend.profilePictureName }}" alt="User Avatar" class="img-fluid rounded-circle mr-3"
+            style="width: 40px; height: 40px;">
+
+          <!-- Name and Interest -->
+          <div class="text-left">
+            <h6 class="mb-1">{{ friend.firstName }} </h6>
+            <p class="mb-0 text-muted">{{ friend.programme }} </p>
+          </div>
+
+          <!-- Icon at the extreme right -->
+          <div class="text-right" style="border: #bdbebd solid 1px; padding:4px;">
+            <span>
+              <a class="btn btn-primary" (click)="acceptFriend(friend.id)">accept</a>
+              <a class="btn btn-danger" (click)="updateTopChats()">reject</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+</div>

@@ -1,0 +1,129 @@
+<div class="container-fluid ">
+<div style="display: flex;" class="row">
+<div  class="col-md-8">
+    <!-- Feed Section -->
+     <!-- Post Section (Sample Post) -->
+     <div class="card" style="border-top: 5px solid #007bff;">
+      <div class="card-body">
+        <div class="row ">
+          <!-- Avatar on the left -->
+          <div class="col-md-3">
+            <img [src]="profileUrl" alt="User Avatar" class="img-fluid rounded-circle mb-3" style="width: 60px; height: 60px;">
+          </div>
+    
+          <!-- Buttons on the right -->
+          <div class="col-md-9  mt-3" style="text-align: right">
+            <button class="btn btn-primary mr-2" (click)="hideEditor()" [style.display]="hideE?'inline':'none'">Hide input</button>
+            <button class="btn btn-primary" (click)="showEditor()">Post a mentioning</button>
+          </div>
+          <div 
+          [style.display]="ckEditor?'block':'none'"
+          >
+          <app-ck-editor></app-ck-editor>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <app-user-interest [profile]="profileUrl"></app-user-interest>
+
+   
+
+
+  
+<!-- top profile -->
+<div>
+    <app-couroser></app-couroser>
+</div>
+
+
+
+        <!-- User interests and location -->
+        <!-- <app-user-interest [profile]="profileUrl"> </app-user-interest> -->
+</div>
+
+
+<!-- Right side -->
+<div class="col-md-4">
+  <div class="">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #fff;">
+        <!-- Heading on the left -->
+        <h5 class="mb-0">Top chats</h5>
+        <!-- Three dots on the right -->
+        <span>&#8942;</span>
+      </div>
+       <div class="card-body">
+        <!-- Avatar, Name, and Interest -->
+        
+        <ng-container *ngFor="let d of topChats">
+        <div class="d-flex justify-content-between align-items-center" >
+          <!-- Avatar on the left -->
+          
+
+          <!-- Name and Interest -->
+          <!-- <div class="text-left">
+            <h6 class="mb-1">John Doe</h6>
+            <p class="mb-0 text-muted">Web Developer</p>
+          </div> -->
+
+           
+          <img [src]="profileUrl" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
+          <div class="media-body">
+              <span class="mt-0"><strong>{{d.firstName }} {{d.surname}}</strong></span>
+              <p>Hey, how are you doing?</p>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="text-muted">12:30 PM</small>
+              <span class="badge badge-primary " style="color: red;">1</span>
+            </div>
+          
+          <hr class="my-2">
+
+          
+        </div>
+      </ng-container>
+
+        
+</div>
+    </div>
+
+    <div class="card mt-5">
+      <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #fff;">
+        <!-- Heading on the left -->
+        <h5 class="mb-0">Online</h5>
+        <!-- Three dots on the right -->
+        <span>&#8942;</span>
+      </div>
+      
+      <div class="card-body">
+        <!-- Avatar, Name, and Interest -->
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Avatar on the left -->
+          <img src="./../../assets/avatar.webp" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
+
+          <!-- Name and Interest -->
+          <div class="text-left">
+            <h6 class="mb-1">John Doe</h6>
+            <p class="mb-0 text-muted">Web Developer</p>
+          </div>
+
+          <!-- Icon at the extreme right -->
+          <div class="text-right" style="border: #bdbebd solid 1px; padding:4px;">
+            <span class="material-icons text-dark plus">
+                add
+                </span>
+          </div>
+        </div>
+
+        
+</div>
+
+    
+    </div>
+</div>
+
+</div>
+   
+</div>

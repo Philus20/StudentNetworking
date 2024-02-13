@@ -1,0 +1,72 @@
+<!-- <div class="container-fluid">
+    <div class="row mt-5">
+<div class="col-md-6">
+    
+</div>
+<div class="col-md-4">
+    <div class="card-body">
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email"placeholder="email" [(ngModel)]="email" class="form-control"name="email" aria-describedby="emailHelp">
+             
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" placeholder="password" class="form-control" [(ngModel)]="password" name="password ">
+            </div>
+           
+            <button type="button" class="btn btn-primary" (click)="register()">Register</button>
+          </form>
+    </div>
+
+</div>
+<div class="col-md-6">
+
+</div>
+    </div>
+</div>
+
+src/app/app.component.html 
+
+<div>
+  <h2>SignalR Chat</h2>
+  <div>
+    <input [(ngModel)]="user" placeholder="Enter your name" />
+    <input [(ngModel)]="message" placeholder="Type a message" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+  <div *ngFor="let msg of messages">
+    {{ msg.user }}: {{ msg.message }}
+  </div>
+</div>
+
+ -->
+ <!-- Modal -->
+ <div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+  <button type="button" class="btn-close" aria-label="Close" ></button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+      <label for="dateOfBirth">Date of birth</label>
+      <div class="input-group">
+        <input
+          id="dateOfBirth"
+          class="form-control"
+          placeholder="yyyy-mm-dd"
+          name="dp"
+          ngbDatepicker
+          #dp="ngbDatepicker"
+        />
+        
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="this.modal.close('OK')">Save</button>
+</div>
+
+<uppy-dashboard [uppy]="uppy"> </uppy-dashboard>

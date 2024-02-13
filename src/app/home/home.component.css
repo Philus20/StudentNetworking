@@ -1,0 +1,20 @@
+.plus:hover{
+    cursor: pointer;
+}
+li{
+    list-style-type: none;
+}
+li:hover{
+    cursor: pointer;
+}
+.dotsInfo{
+    position: relative;
+    bottom: -1rem;
+    left: 6rem;
+}
+.dots:hover{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}

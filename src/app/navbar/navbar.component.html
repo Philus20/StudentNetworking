@@ -1,0 +1,103 @@
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+  <a class="navbar-brand" href="#">Social Networking App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <form class="form-inline my-2 my-lg-0">
+    <div class="input-group">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      <div class="input-group-append">
+        <button class="btn btn-success" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+  <div class="collapse navbar-collapse mt-3" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <div class="d-flex flex-column align-items-center">
+          <span class="material-icons">home</span>
+
+          <a class="nav-link" href="#">Home</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <div class="d-flex flex-column align-items-center">
+          <span class="material-icons">
+            extension
+          </span>
+          <a class="nav-link" routerLink="/posts">Posts</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="d-flex flex-column align-items-center">
+          <span class="material-icons">
+            group
+          </span>
+          <a class="nav-link" href="#">Profiles</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <div class="d-flex flex-column align-items-center">
+          <span class="material-icons">
+            chat
+          </span>
+          <a class="nav-link" routerLink="/mes" (click)="goToMes()">Messages</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="d-flex flex-column align-items-center">
+          <span class="material-icons">
+            notifications
+          </span>
+          <a class="nav-link" >Notification</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="d-flex flex-column align-items-center">
+          <span class="material-icons">
+            notifications
+          </span>
+          <a class="nav-link" (click)="forum()">Forum</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <!-- <div class="d-flex flex-column align-items-center">
+            
+                <button type="button" (click)="me()" class="btn btn-danger text-white">Log out</button>
+          </div> -->
+
+        <div ngbDropdown class="d-inline-block">
+          <button type="button" class="btn btn-danger" id="dropdownBasic1" ngbDropdownToggle>
+            Settings &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <!-- <button ngbDropdownItem>Action - 1</button>
+				<button ngbDropdownItem>Another Action</button>
+				<button ngbDropdownItem>Something else is here</button> -->
+
+
+
+            <button ngbDropdownItem (click)="open()">Edit Profile</button>
+
+            <button ngbDropdownItem (click)="accountSettings()">Acount Settings</button>
+            <button ngbDropdownItem>Privacy</button>
+            <button ngbDropdownItem>FAQs</button>
+            <button ngbDropdownItem>Terms & Conditions</button>
+            <div class="dropdown-divider"></div>
+            <div class="">
+              <button ngbDropdownItem (click)="logout()">Logout</button>
+            </div>
+
+
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,14 @@
+<!-- Tabs navigation -->
+
+      <a class="btn" id="login-tab"  routerLink="/log" 
+      [style.background]="isActive ? '#0d6efd':'none'"
+      [style.color]="isActive ? 'white':'black'"
+      (click)="changeColor()
+      
+      
+      "
+      >Login</a>
+    &nbsp;&nbsp;
+      <a class="btn"routerLink="/reg"
+      [style.background]="isActive2 ? '#0d6efd':'none'"  [style.color]="isActive2 ? 'white':'black'"(click)="changeReg()" >Register</a>
+    

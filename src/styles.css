@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+
+body {
+    /* padding-top: 60px; Adjust the height of the navigation bar */
+    background-color: hsl(0, 0%, 96%);
+  }
+
+
+  .material-icons{
+    width: 18px; height: 16px; color: white;
+  }

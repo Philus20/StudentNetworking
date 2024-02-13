@@ -1,0 +1,26 @@
+<!--  
+ <div>
+  Lorem ipsummpora!
+ </div>
+ <form #f="ngForm" (submit)="onSubmit(f)" class="form-group">
+
+  <label >email</label>
+<input type="email" name="email" placeholder="message" ngModel class="form-control">
+<textarea  id="" cols="30" rows="10" placeholder="message"class="form-control " ngModel name="message"></textarea>
+<button type="submit">send</button>
+ </form> -->
+ <!-- <div>
+  <h3>Received Message</h3>
+  <p>User: {{ receivedData.user }}</p>
+  <p>Message: {{ receivedData.message }}</p>
+</div> -->
+<div>
+  <div *ngFor="let msg of chatHistory">
+    <strong>{{ msg.user }}:</strong> {{ msg.message }}
+  </div>
+</div>
+<div>
+  <input [(ngModel)]="user" placeholder="Username" />
+  <input [(ngModel)]="message" placeholder="Type a message..." />
+  <button (click)=" sendMessage()">Send</button>
+</div>

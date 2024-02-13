@@ -1,0 +1,50 @@
+<!-- Right side -->
+
+  <div class="">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #fff;">
+        <!-- Heading on the left -->
+        <h5 class="mb-0">Top chats</h5>
+        <!-- Three dots on the right -->
+        <span>&#8942;</span>
+      </div>
+       <div class="card-body">
+        <!-- Avatar, Name, and Interest -->
+        
+        <ng-container *ngFor="let d of topChats2">
+        <div class="d-flex justify-content-between align-items-center" >
+          <!-- Avatar on the left -->
+          
+
+          <!-- Name and Interest -->
+          <!-- <div class="text-left">
+            <h6 class="mb-1">John Doe</h6>
+            <p class="mb-0 text-muted">Web Developer</p>
+          </div> -->
+
+           
+          <img src="{{ baseUrl + d.profilePictureName}}" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
+          <div class="media-body">
+              <span class="mt-0  chat" (click)="activeUser(d.id)"><strong >{{d.firstName }} {{d.surname}}</strong></span>
+              <p>Hey, how are you doing?</p>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="text-muted">12:30 PM</small>
+              <span class="badge badge-primary " style="color: red;">{{d.unread}}</span>
+            </div>
+          
+          <hr class="my-2">
+
+          
+        </div>
+      </ng-container>
+
+        
+</div>
+    </div>
+
+    
+</div>
+
+
+   

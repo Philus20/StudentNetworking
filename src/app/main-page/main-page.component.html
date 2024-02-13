@@ -1,0 +1,30 @@
+<div class="container-fluid page"
+[class.main]= "!showPage"
+>
+    
+
+<section *ngIf= "showPage">
+<app-navbar></app-navbar>
+<div class="container-fluid main-page" style="position: relative; top:7rem">
+    <div class="row ">
+<app-home class="col-md-3"></app-home>
+<app-center class="col-md-9"></app-center>
+<!-- <app-right class="col-md-3"></app-right> -->
+
+
+</div>
+</div>
+
+<router-outlet></router-outlet>
+
+</section>
+
+<section *ngIf= "!showPage">
+    <div class="loader"></div>
+    <div class="loader1"></div>
+    <div class="loader2"></div>
+    <div class="loader3"></div>
+
+</section>
+
+</div>

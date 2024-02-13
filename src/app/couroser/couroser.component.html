@@ -1,0 +1,24 @@
+<ngb-carousel
+	#carousel
+	[interval]="5000"
+	[pauseOnHover]="pauseOnHover"
+	[pauseOnFocus]="pauseOnFocus"
+	(slide)="onSlide($event)"
+>
+	@for (img of images; track img; let i = $index) {
+		<ng-template ngbSlide>
+			
+            
+			<div class="d-flex">
+				 <app-top-profile></app-top-profile> 
+				 <app-top-profile></app-top-profile> 
+				 <app-top-profile></app-top-profile> 
+				 <app-top-profile></app-top-profile> 
+				</div>
+			
+		</ng-template>
+	}
+</ngb-carousel>
+
+<hr />
+

@@ -1,0 +1,17 @@
+<!-- <label for="j"><i class="bi bi-camera"></i> edit</label>
+<input type="file" (change)="onFileSelected($event)" id="j" /> -->
+<form >
+<label for="profilePicture" class="profile-picture-label">
+    <i class="bi bi-camera"></i>  Edit
+  </label>
+  <input type="file" id="profilePicture" name="profilePicture"   (change)="onFileSelected($event)" accept="image/*"
+  
+
+  (change)="onUpload()"
+  
+  >
+<!-- <button (click)="onUpload()" class="ms-3">update</button> -->
+
+</form>
+
+
