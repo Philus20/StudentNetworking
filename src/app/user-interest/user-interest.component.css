@@ -4,4 +4,14 @@
 
 .love, .comment,.visibility{
     font-size: 16px;
+
+}
+
+.love, .comment,.visibility:hover{
+    cursor: pointer;
+    
+}
+
+.cout,.com:hover{
+cursor: pointer;
 }

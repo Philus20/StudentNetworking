@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { FirebaseAuthService } from '../services/firebase-auth.service';
+//import { FirebaseAuthService } from '../services/firebase-auth.service';
 import { Chat2Service } from '../services/chat2.service';
 import { NgbActiveModal,NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import Uppy from '@uppy/core';
-import Dashboard from '@uppy/dashboard';
+// //
 
 @Component({
   selector: 'app-r',
@@ -17,13 +16,13 @@ password:string = ""
 user:string=''
 messages: { user: string, message: string }[] = [];
 message:string=''
-constructor (private auth:FirebaseAuthService, public chat2:Chat2Service,public modal:NgbActiveModal) {
+constructor (public chat2:Chat2Service,public modal:NgbActiveModal) {
 
 
 console.log("hello")
 
 }
-uppy: Uppy = new Uppy().use(Dashboard, { inline: true, target: '#uppy-dashboard' });
+//uppy: Uppy = new Uppy().use(Dashboard, { inline: true, target: '#uppy-dashboard' });
 // ngOnInit() {
 //   //this.chat2.createChatConnection();
 //   this.chat2.messageReceived.subscribe((message) => {

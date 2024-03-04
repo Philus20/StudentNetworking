@@ -4,6 +4,7 @@ import { FileRes } from '../utils/file';
 import { SharedService } from '../services/shared.service';
 import { EmailService } from '../services/email.service';
 import { NgModel } from '@angular/forms';
+import { Register } from '../utils/IRegister';
 
 
 
@@ -29,12 +30,15 @@ export class ImageUploadComponent {
   onUpload(): void {
     if (this.selectedFile) {
       this.imageService.uploadImage(this.emailService.userInformation.id, this.selectedFile).subscribe({
-        next: (response:FileRes) => {
+        next: (response:Register) => {
           response
           //if(this.imageService.fileRespond){
           console.log('Image uploaded successfully ', response);
           console.log(this.selectedFile)
-          this.sService.emitSharedName(response.fileName)
+          console.log(response.profilePictureName)
+          this.sService.emitSharedName(response.profilePictureName)
+          localStorage.setItem('fileRes',response.profilePictureName)
+
       },
         error:(error) => {
           console.error('Error uploading image', error);

@@ -17,10 +17,11 @@ export class HomeComponent implements OnInit {
   suggestions: Register[] = []
   students: Register[] = []
   friendProfile!: string
-  baseUrl: string = 'http://localhost:5293/api/Files/'
+  baseUrl: string = 'http://localhost:5293/api/Files/'//http://localhost:5293/api/Files/1658c3d3-e623-4d5f-9d43-bde250a992a0.jpeg
   pendingData: Register[] = []
   loginEmail: string = ''
   loginPass: string = ''
+  user!:Register
 
   constructor(public emailService: EmailService, public imageService: ImageService, private sService: SharedService, private signalServe: SignalrService) {
 
@@ -48,7 +49,17 @@ export class HomeComponent implements OnInit {
     }
     )
 
-
+ //i am trying to get the information of a user so that i cant update the profile
+ setTimeout(() => {
+  this.emailService.getEmail(this.emailService.userInformation.email).subscribe({
+    next:(data:any)=>{
+             this.user = data;
+            // this.emailService.userInformation.email = this.user.profilePictureName
+    }
+  
+  })
+ }, 2000);
+ 
 
 
     // this.profileUrl=`${this.emailService.fileApiUrl}/${}`
@@ -57,16 +68,18 @@ export class HomeComponent implements OnInit {
     console.log('test')
     console.log('here  ')
 
-
+   
     //console.log(this.profileUrl, this.emailService.fileApiUrl);
-    this.image = localStorage.getItem('fileRes')
+   this.image = localStorage.getItem('fileRes')
     this.image == 'null' ?
       this.profileUrl = "../../assets/uaer.png" :
       this.profileUrl = `${this.emailService.fileApiUrl}/${this.image}`
+      this.emailService.profileUrl=this.profileUrl
     // this.friendProfile = `${this.emailService.fileApiUrl}/${this.student.profilePictureName}`
     this.sService.shareName$.subscribe((val) => {
-
-      this.profileUrl = `${this.emailService.fileApiUrl}/${val}`
+       console.log("e78594")
+      this.profileUrl =  `${this.emailService.fileApiUrl}/${val}`
+      localStorage.setItem("p",val)
 
     }
     )

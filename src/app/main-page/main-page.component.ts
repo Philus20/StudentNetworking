@@ -21,22 +21,29 @@ export class MainPageComponent {
   constructor(private toastr:ToastrService ,private emailService:EmailService,private router:Router, private chatS:ChatService){
 
 this.chatS.myEmail =   this.emailService.userInformation.email
-  
+//localStorage.removeItem('loginData')
   }
   
 
   ngOnInit(){
-    this.emailService.getEmail(this.emailService.userInformation.email).subscribe({
-      next: (x) => {
-        this.showPage = true
-      },
-      error:(err)=>{
-        if(err.status==0){
-          this.showPage = false;
-        }
-      }
-    }
-    )
+    // this.emailService.getEmail(this.emailService.userInformation.email).subscribe({
+    //   next: (x) => {
+    //     this.showPage = true
+    //   },
+    //   error:(err)=>{
+    //     if(err.status==0){
+          
+          
+
+    //       setTimeout(() => {
+    //         this.showPage = false;
+    //       }, 100);
+    //       this.showPage = true;
+    //       this.router.navigate(['/log'])
+    //     }
+    //   }
+    // }
+    // )
   }
 
 }

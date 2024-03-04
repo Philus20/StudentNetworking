@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FirebaseAuthService } from './firebase-auth.service';
+import { FileDownloadService } from './file-download.service';
 
-describe('FirebaseAuthService', () => {
-  let service: FirebaseAuthService;
+describe('FileDownloadService', () => {
+  let service: FileDownloadService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FirebaseAuthService);
+    service = TestBed.inject(FileDownloadService);
   });
 
   it('should be created', () => {

@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 import { Subject } from 'rxjs';
+import { Message } from '../utils/Message';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Chat2Service {
   private hubConnection!: signalR.HubConnection;
-  messageReceived = new Subject<{ name:string, user: string, message: string}>();
-
+  // messageReceived = new Subject<{ name:string, user: string, message: string}>();
+  messageReceived = new Subject<Message>();
+  fileMessage = new Subject<Message>();
+  fileMessage$= this.fileMessage.asObservable() 
   constructor() { }
 
   startConnection() {
@@ -21,16 +24,17 @@ export class Chat2Service {
       .then(() => console.log('Connection started'))
       .catch(err => console.log('Error while starting connection: ' + err));
 
-    this.hubConnection.on('ReceiveMessage', (name,user, message) => {
-      this.messageReceived.next({ name,user, message });
+    this.hubConnection.on('ReceiveMessage', ( message) => {
+      console.log("received")
+      this.messageReceived.next(message);
     });
     this.hubConnection.on('ReceiveMessage1', (user) => {
       
     });
   }
 
-  sendMessage(name:string,user: string, message: string) {
-    this.hubConnection.invoke('SendMessage', name,user, message)
+  sendMessage(message:Message) {
+    this.hubConnection.invoke('SendMessage',  message).then(x=>console.log("sent"))
       .catch(err => console.error(err));
   }
   async sendMessage1(user: string) {

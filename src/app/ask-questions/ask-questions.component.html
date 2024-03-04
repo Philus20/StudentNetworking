@@ -5,16 +5,16 @@
       <!-- Left Column with a larger width -->
       <div class="col-lg-8">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body" *ngFor="let q of questions">
             <div class="row">
               <!-- Left Section (Avatar) -->
-              <div class="col-md-2">
-                <img src="img/avatar.webp" class="img-fluid rounded-circle" alt="Avatar">
-              </div>
+              <!-- <div class="col-md-2">
+                <img src="{{baseUrl+q.profilePictureName}}" class="img-fluid rounded-circle" alt="Avatar">
+              </div> -->
 
               <!-- Center Section (Text) -->
 <div class="col-md-7">
-<p>Your text goes here. Lorem ipsum dolor sit amet.</p>
+<p>{{q.content}}</p>
 
 <!-- Vote, Comment, and View Icons -->
 <div class="d-flex justify-content-between mt-3">
@@ -26,7 +26,7 @@
   <div>
     <i class="fas fa-comment"></i>
     <span class="ml-1">Comment</span>
-    <span class="ml-1">5</span>
+    <span class="ml-1">{{q.comment}}</span>
   </div>
   <div>
     <i class="fas fa-eye"></i>
@@ -36,11 +36,11 @@
 </div>
 
       <!-- Buttons -->
-<div class="mt-3">
+<!-- <div class="mt-3">
   <button type="button" class="btn btn-primary">Work</button>
   <button type="button" class="btn btn-success ml-2">Php</button>
   <button type="button" class="btn btn-info ml-2">Design</button>
-</div>
+</div> -->
 </div>
       
               
@@ -230,7 +230,9 @@
           <div class="col-md-12">
             <div class="bg-white text-left p-2 font-weight-bold">
               <!-- Content for the top container -->
-              <p>Something Here</p>
+              <textarea name="question" id="" cols="60" rows="10" placeholder="Get solutions to you question here"></textarea>
+              <br>
+              <a class="btn btn-primary priamar">send question</a>
             </div>
           </div>
         </div>

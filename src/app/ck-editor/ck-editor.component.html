@@ -1,4 +1,17 @@
 <!-- app.component.html -->
-<ckeditor tagName="textarea" [editor]="Editor" [(ngModel)]="editorData" data="<p>Hello, world! k</p>"></ckeditor>
+<!-- <ckeditor tagName="textarea" [editor]="Editor" [(ngModel)]="editorData" data="<p>Hello, world! k</p>"></ckeditor> -->
+
+<textarea name="" id="" cols="50" rows="7" [(ngModel)]="editorData" placeholder="what's on you mind ?"></textarea>
+<br>
+<br>
+<br>
 
 <button (click)="onButtonClick()" class=" btn btn-primary">Post </button>
+
+
+    <label for="postImage" class="postImage_label">
+        <i class="bi bi-camera"></i>  
+      </label>
+      <input type="file" id="postImage" name="postImage" class="postImage"  (change)="onFile($event)" 
+      
+      >

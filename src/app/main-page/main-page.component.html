@@ -1,11 +1,11 @@
 <div class="container-fluid page"
-[class.main]= "!showPage"
->
-    
 
-<section *ngIf= "showPage">
+>
+<!-- [class.main]= "!showPage"  -->
+
+<section >
 <app-navbar></app-navbar>
-<div class="container-fluid main-page" style="position: relative; top:7rem">
+<div class="container-fluid main-page" style="position: relative; top:8rem">
     <div class="row ">
 <app-home class="col-md-3"></app-home>
 <app-center class="col-md-9"></app-center>
@@ -19,12 +19,12 @@
 
 </section>
 
-<section *ngIf= "!showPage">
+<!-- <section *ngIf= "!showPage">
     <div class="loader"></div>
     <div class="loader1"></div>
     <div class="loader2"></div>
     <div class="loader3"></div>
 
-</section>
+</section> -->
 
 </div>

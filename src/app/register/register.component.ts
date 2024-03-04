@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Output,EventEmitter } from '@angular/core';
 import { Register } from '../utils/IRegister';
 import { EmailService } from '../services/email.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ signin:boolean=false
 x:number=4;
 
 
-constructor(private service:SignalrService, private toast: ToastrService, private EmailS:EmailService ){
+constructor(private service:SignalrService, private toast: ToastrService, private EmailS:EmailService,private router:Router ){
   
 }
 ngOnInit(){
@@ -68,16 +69,16 @@ ngOnInit(){
         next: (data:any)=>{
            console.log('POST request successful:', data);
            this.toast.success('','Sign up successfully')
-           
+           this.router.navigate(['/log'])
 
-           this.service.getData().subscribe({
-            next: (data:any)=>{
-             // console.log(data)
-                          //  this.data2 = data
-                          //  console.log(this.data2[0].email)
-            }
+          //  this.service.getData().subscribe({
+          //   next: (data:any)=>{
+          //    // console.log(data)
+          //                 //  this.data2 = data
+          //                 //  console.log(this.data2[0].email)
+          //   }
             
-           })
+          //  })
         },
         error:(error)=> {
           console.error("Reached here",error.error);

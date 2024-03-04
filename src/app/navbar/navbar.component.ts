@@ -37,7 +37,7 @@ export class NavbarComponent {
   logout(){
     console.log('fjjj')
     localStorage.removeItem('loginData')
-    
+    this.emailService.checking("2","4")
     this.router.navigate(['/log']);
    }
    accountSettings(){

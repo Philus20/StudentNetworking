@@ -11,7 +11,7 @@ import { ShowMessage } from '../utils/ShowMessage';
 })
 export class RightComponent {
   topChats:Register[]=[];
-  @Input () topChats2:TopChatAddCounting[]=[]
+  topChats2:TopChatAddCounting[]=[]
   baseUrl:string = 'http://localhost:5293/api/Files/';
   activeUser1 !:Register 
   x:number = 0
@@ -63,7 +63,7 @@ export class RightComponent {
               next: (data:any)=>{
                 
                    this.emailService.backendMessages=data
-                   
+                   console.log(data)
                   
                    for(let message of  this.emailService.backendMessages ){
                    
@@ -98,7 +98,7 @@ export class RightComponent {
          
     
      
-      
+      index:number =0
         
  
   private getMessage(email:string, active:string){
@@ -107,31 +107,202 @@ export class RightComponent {
            this.emailService.backendMessages =data;
            for(let mes of this.emailService.backendMessages){
             if(this.activeUser1.email == mes.senderEmail){
-                const mess:ShowMessage = {
+              if(mes.isFile=="1"){
+                if(mes.file && mes.ext &&mes.id){
+                  
+                  if(mes.ext == "image"){
+                  const mess:ShowMessage = {
+                    id:mes.id,
                    senderEmail:mes.senderEmail,
                    receiverEmail:mes.receiverEmail,
                     subject :mes.subject ,
                   status:mes.status,
+                  fileDisplay:true,
+                  file:mes.file,
+                  isFile:mes.file,
                    time:mes.time,
-                  user:false
+                   ext:mes.ext,
+                  user:false,
+                // i:true,
+                  index:this.index,
+                  fileUrl:`http://localhost:5293/api/FileMessage/${mes.file}`
     
                 }
-              
                 this.emailService.disMess.push(mess)
+              }
+
+              else if(mes.ext == "video"){
+                const mess:ShowMessage = {
+                  id:mes.id,
+                 senderEmail:mes.senderEmail,
+                 receiverEmail:mes.receiverEmail,
+                  subject :mes.subject ,
+                status:mes.status,
+                fileDisplay:true,
+                file:mes.file,
+                isFile:mes.file,
+                 time:mes.time,
+                 ext:mes.ext,
+                user:false,
+               // v:true,
+                index:this.index,
+                fileUrl:`http://localhost:5293/api/FileMessage/${mes.file}`
+
+  
+              }
+              this.emailService.disMess.push(mess)
             }
+
             else {
               const mess:ShowMessage = {
-                senderEmail:mes.senderEmail,
-                receiverEmail:mes.receiverEmail,
-                 subject :mes.subject ,
-               status:mes.status,
-                time:mes.time,
-               user:true
-    
-             }
-             this.emailService.disMess.push(mess)
+                id:mes.id,
+               senderEmail:mes.senderEmail,
+               receiverEmail:mes.receiverEmail,
+                subject :mes.subject ,
+              status:mes.status,
+              fileDisplay:true,
+              file:mes.file,
+              isFile:mes.file,
+               time:mes.time,
+               ext:mes.ext,
+              user:false,
+              download:true,
+              d:true,
+              fileUrl:`http://localhost:5293/api/FileMessage/${mes.file}`,
+              index:this.index
+
+
             }
-           }
+            this.emailService.disMess.push(mess)
+          }
+              }
+              }
+
+              //End of the nested if 
+
+              //starting the else
+              else{
+                if(   mes.id){
+                  const mess:ShowMessage = {
+                    id:mes.id,
+                   senderEmail:mes.senderEmail,
+                   receiverEmail:mes.receiverEmail,
+                    subject :mes.subject ,
+                  status:mes.status,
+                  fileDisplay:false,
+                  
+                  isFile:mes.file,
+                   time:mes.time, 
+                  
+                  user:false,
+                  index:this.index,
+                  fileUrl:`http://localhost:5293/api/FileMessage/${mes.file}`
+
+    
+                }
+                this.emailService.disMess.push(mess)
+              }
+              }
+              //end of the nested else
+            }
+            else {
+              if(mes.isFile=="1"){
+                 if(mes.file && mes.ext   &&mes.id){
+                  if(mes.ext=="image"){
+                const mess:ShowMessage = {
+                  id:mes.id,
+                   senderEmail:mes.senderEmail,
+                   receiverEmail:mes.receiverEmail,
+                    subject :mes.subject ,
+                  status:mes.status,
+                  fileDisplay:true,
+                  file:mes.file,
+                  isFile:mes.file,
+                   time:mes.time,
+                   ext:mes.ext,
+                  user:true,
+                  //i:true,
+                  index:this.index,
+                  fileUrl:`http://localhost:5293/api/FileMessage/${mes.file}`
+
+    
+                }
+                this.emailService.disMess.push(mess)
+              }
+             else if(mes.ext=="video"){
+                const mess:ShowMessage = {
+                  id:mes.id,
+                   senderEmail:mes.senderEmail,
+                   receiverEmail:mes.receiverEmail,
+                    subject :mes.subject ,
+                  status:mes.status,
+                  fileDisplay:true,
+                  file:mes.file,
+                  isFile:mes.file,
+                   time:mes.time,
+                   ext:mes.ext,
+                  user:true,
+                 // v:true,
+                  index:this.index,
+                  fileUrl:`http://localhost:5293/api/FileMessage/${mes.file}`
+
+    
+                }
+                this.emailService.disMess.push(mess)
+              }
+              else{
+                const mess:ShowMessage = {
+                  id:mes.id,
+                   senderEmail:mes.senderEmail,
+                   receiverEmail:mes.receiverEmail,
+                    subject :mes.subject ,
+                  status:mes.status,
+                  fileDisplay:true,
+                  file:mes.file,
+                  isFile:mes.file,
+                   time:mes.time,
+                   ext:mes.ext,
+                  user:true,
+                  download:true,
+                  d:true,
+                  index:this.index,
+                  fileUrl:`http://localhost:5293/api/FileMessage/${mes.file}`
+
+    
+                }
+                this.emailService.disMess.push(mess)
+              }
+              }
+              }
+
+              //End of the nested if 
+
+              //starting the else
+              else{
+                if(mes.id){
+                const mess:ShowMessage = {
+                  id:mes.id,
+                  senderEmail:mes.senderEmail,
+                  receiverEmail:mes.receiverEmail,
+                  subject :mes.subject ,
+                  status:mes.status,
+                  fileDisplay:false,
+                  file:mes.file,
+                  isFile:mes.file,
+                   time:mes.time,
+                  
+                  user:true,
+                  index:this.index,
+                  fileUrl:`http://localhost:5293/api/FileMessage/${mes.file}`
+
+    
+                }
+                this.emailService.disMess.push(mess)
+              }
+              }
+            }
+          this.index++ 
+        }
            this.emailService.sendMess.next(this.emailService.disMess);
 //console.log(data)
       }

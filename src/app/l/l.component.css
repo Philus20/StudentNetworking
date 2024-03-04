@@ -1,0 +1,21 @@
+/*
+
+                                        <div class="chat-messages user-chat" *ngIf="!x.user  && x.fileDisplay">
+                                            <!-- User's messages -->
+                                            <div class="message my-message">
+                                               <img src="{{base+x.file}} " alt="" width="50px">
+                                            </div>
+                                            <p class="text-muted message-time">{{x.time}}</p>
+                                        </div>
+
+
+                                        <div class="message other-message" *ngIf="x.user && x.fileDisplay">
+                                            <div class="chat-messages other-chat">
+                                                <!-- Another user's messages -->
+
+                                                <!-- <p>Not much, just working on some stuff.</p> -->
+                                                <p> <img src="{{base+x.file}} " alt="" width="50px"></p>
+                                            </div>
+                                            <p class="text-muted message-time">{{x.time | date: 'shortDate'}}</p>
+                                        </div>
+*/

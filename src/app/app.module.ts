@@ -37,19 +37,22 @@ import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { PendingComponent } from './pending/pending.component';
 import { FriendsComponent } from './friends/friends.component';
 import { MessageComponent } from './message/message.component';
-import {AngularFireModule} from '@angular/fire/compat'
-import { environmet } from '../environment';
+//import {AngularFireModule} from '@angular/fire/compat'
+//import { environmet } from '../environment';
 import { LComponent } from './l/l.component';
 import { RComponent } from './r/r.component';
 import { DComponent } from './d/d.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AccountComponent } from './account/account.component';
-import { UppyAngularDashboardModule, UppyAngularDragDropModule,UppyAngularStatusBarModule,  UppyAngularProgressBarModule} from '@uppy/angular';
+//import { UppyAngularDashboardModule, UppyAngularDragDropModule,UppyAngularStatusBarModule,  UppyAngularProgressBarModule} from '@uppy/angular';
 import { MeeeComponent } from './meee/meee.component';
 import { ForumMainComponent } from './forum-main/forum-main.component';
 import { ForumNavComponent } from './forum-nav/forum-nav.component';
 import { AskQuestionsComponent } from './ask-questions/ask-questions.component';
+import { SendFileComponent } from './send-file/send-file.component';
+import { FileDownloadComponent } from './file-download/file-download.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +88,9 @@ import { AskQuestionsComponent } from './ask-questions/ask-questions.component';
     ForumMainComponent,
     ForumNavComponent,
     AskQuestionsComponent,
+    SendFileComponent,
+    FileDownloadComponent,
+    PostComponent,
     
   ],
   imports: [
@@ -96,16 +102,17 @@ import { AskQuestionsComponent } from './ask-questions/ask-questions.component';
     NgbCarouselModule,
     FormsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule,
-    AngularFireModule.initializeApp(environmet.firebase),
+   NgxSpinnerModule,
+   //NgxSpinnerModule.forRoot({ type: 'ball-spin' }),
+    //AngularFireModule.initializeApp(environmet.firebase),
     CKEditorModule,
     NgbDropdownModule,
     NgbModalModule,
-    UppyAngularDashboardModule,
-    UppyAngularStatusBarModule,
+    // UppyAngularDashboardModule,
+    // UppyAngularStatusBarModule,
   
-    UppyAngularDragDropModule,
-    UppyAngularProgressBarModule,
+    // UppyAngularDragDropModule,
+    // UppyAngularProgressBarModule,
     
     
     

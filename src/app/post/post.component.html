@@ -1,0 +1,19 @@
+
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">uploading</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+      <!-- Display area for the image -->
+<img *ngIf="imageToShow" [src]="imageToShow" alt="Selected Image" style="max-width: 100%;">
+
+<!-- Display area for the video -->
+<video *ngIf="videoToShow" controls style="max-width: 100%;">
+  <source [src]="videoToShow" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<br><br><br>
+<!-- <ckeditor tagName="textarea" [editor]="Editor" [(ngModel)]="editorData" data="<p>Hello, world! k</p>"></ckeditor> -->
+<input type="text" [(ngModel)]="message" name="message">
+<a class="btn btn-primary"(click)="sendFileToDatabase()" > send</a>
+</div>

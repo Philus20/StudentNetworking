@@ -5,11 +5,15 @@ senderEmail? :string,
 receiverEmail ?:string,
 subject : string,
 status?:string,
-time?:Date
+time?:Date,
+file?:string,
+isFile?:string,
+ext?:string
+}
 // Status ?: string
 // time?:Date
 //<p>Date only: {{ newMessage.timestamp | date:'yyyy-MM-dd' }}</p>
-}
+
 
 // public int id { get; set; }
 // public string SenderEmail { get; set; }

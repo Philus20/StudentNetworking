@@ -40,7 +40,7 @@
                                     <!-- User's Avatar on the left side -->
                                     <div *ngFor="let x of disMess">
 
-                                        <div class="chat-messages user-chat" *ngIf="!x.user">
+                                        <div class="chat-messages user-chat" *ngIf="!x.user && !x.fileDisplay">
                                             <!-- User's messages -->
                                             <div class="message my-message">
                                                 {{ x.subject}}
@@ -49,7 +49,7 @@
                                         </div>
 
 
-                                        <div class="message other-message" *ngIf="x.user">
+                                        <div class="message other-message" *ngIf="x.user && !x.fileDisplay">
                                             <div class="chat-messages other-chat">
                                                 <!-- Another user's messages -->
 
@@ -58,6 +58,63 @@
                                             </div>
                                             <p class="text-muted message-time">{{x.time | date: 'shortDate'}}</p>
                                         </div>
+
+                                        
+                                        <div class="chat-messages user-chat" *ngIf="!x.user  && x.fileDisplay">
+                                            <!-- User's messages -->
+                                            
+                                            <div class="message ">
+                                                <span class="down-arrow"  (click)="showLoadAndDisplay(x.index)" *ngIf="!x.download"><i class="bi bi-arrow-down-circle-fill"></i></span>
+                                                <!-- <span style="position: relative;" *ngIf="x.download" class="down-arrow" > -->
+                                                     <ngx-spinner style="position: relative;"  *ngIf="x.active" size = "small" color = "rgba(0, 0, 0, 0.8)" 
+                                                type = "ball-spin" [fullScreen] = "false" >
+                                                    </ngx-spinner>
+                                                <!-- </span>  -->
+                                               <img src="{{base+x.file}} " alt=""  *ngIf="x.i" width="50px">
+                                               <br>
+                                                 <span *ngIf=" x.i && x.subject">{{x.subject}}</span>
+                                               <video controls width="100" *ngIf="x.v">
+                                                <source  src="{{base+x.file}}"  type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video> 
+                                            <br>
+                                                 <span *ngIf=" x.v &&x.isnull">{{x.subject}}</span>
+                                            <p *ngIf="x.d"><app-file-download></app-file-download>  </p>
+                                            <br>
+                                                 <span *ngIf=" x.d &&x.isnull">{{x.subject}}</span>
+                                            </div>
+                                            <p class="text-muted mess
+                                             age-time">{{x.time}}</p>
+                                        
+                                        </div>
+
+
+                                        <div class="message other-message" *ngIf="x.user && x.fileDisplay">
+                                            <div class="chat-messages other-chat">
+                                                <!-- Another user's messages -->
+                                                <span class="down-arrow"  (click)="showLoadAndDisplay(x.index)" *ngIf="!x.download"><i class="bi bi-arrow-down-circle-fill"></i></span>
+                                                <ngx-spinner style="position: relative;"  *ngIf="x.active" size = "small" color = "rgba(0, 0, 0, 0.8)" 
+                                                type = "ball-spin" [fullScreen] = "false" >
+                                                    </ngx-spinner>
+
+                                                <!-- <p>Not much, just working on some stuff.</p> -->
+                                                 <img src="{{base+x.file}} " alt=""  *ngIf="x.i" width="50px">
+                                                 <br>
+                                                 <span *ngIf=" x.subject">{{x.subject}}</span>
+                                                    <video controls width="100" *ngIf="x.v">
+                                                     <source  src="{{base+x.file}}"  type="video/mp4">
+                                                     Your browser does not support the video tag.
+                                                 </video> 
+                                                 <br>
+                                                 <span *ngIf=" x.subject">{{x.subject}}</span>
+                                                
+                                              <button class="btn btn-primary" (click)="downloadFile(x.index)"  *ngIf="x.d">{{x.file}}.{{x.ext}}</button>
+
+                                                 <span *ngIf=" x.d &&x.isnull">{{x.subject}}</span>
+                                            </div>
+                                            <p class="text-muted message-time">{{x.time | date: 'shortDate'}}</p>
+                                        </div>
+                                       
                                     </div>
 
                                 </div>
@@ -90,9 +147,12 @@
 
                     <!-- Camera Icon -->
                     <div class="input-group-append">
-                        <a class="btn btn-secondary" type="button" id="cameraBtn">
-                            <i class="bi bi-camera"></i>
-                        </a>
+                        <label for="profilePicture" class="profile-picture-label">
+                            <i class="bi bi-camera"></i>  
+                          </label>
+                          <input type="file" id="profilePicture" name="profilePicture"   (change)="onFileSelected($event)" 
+                          
+                          >
                     </div>
 
                     <!-- File Clipper Icon -->
@@ -105,10 +165,22 @@
 
 
 
-
+                        
 
             </div>
         </div>
     </div>
 
     <a class="btn btn-primary" (click)="navigateToRight()">go to right</a>
+
+    <!-- <input type="file" (change)="onFileSelected($event)">
+    
+<app-file-download></app-file-download><br>
+
+<span class="down-arrow"><i class="bi bi-arrow-down-circle-fill"></i></span>
+<div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div> -->
+  <app-file-download></app-file-download>
+
+ 

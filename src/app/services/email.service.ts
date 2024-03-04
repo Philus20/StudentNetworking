@@ -33,6 +33,7 @@ disMess:ShowMessage	[]=[]
 backendMessages:Message[]=[]
 api = "http://localhost:5293/Students"
 fileApiUrl:string ='http://localhost:5293/api/Files'
+profileUrl!:string
 
   constructor(private http:HttpClient, private loginService:LoginService) {
   }
@@ -114,6 +115,13 @@ postMessag(data:Message){
 getMessage(email:string,active:string){
   return this.http.get(`http://localhost:5293/api/Message/${email}/${active}`)
 }
+getFileMessage(email:string,active:string){
+  return this.http.get(`ttp://localhost:5293/api/FileMessage/${email}/${active}`)
+}
+
+get1Message(id:number){
+  return this.http.get(`http://localhost:5293/api/Message/${id}`)
+}
 
 topChats2:TopChatAddCounting[]=[]
 topChats = new BehaviorSubject<TopChatAddCounting[]>([])
@@ -125,6 +133,9 @@ this.topChats.next(data)
 
   editMessage(id:number){
   return this.http.put(`http://localhost:5293/api/Message/${id}`,id)
+}
+editFileMessage(id:number){
+  return this.http.put(`http://localhost:5293/api/FileMessage/${id}`,id)
 }
 
  sharedNumber = new BehaviorSubject<number>(0);

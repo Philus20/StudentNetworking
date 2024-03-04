@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/final-project",
+            "outputPath": "../final-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -38,6 +38,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css" ,
               "node_modules/ngx-spinner/animations/square-jelly-box.css" ,
+              "node_modules/ngx-spinner/animations/ball-spin.css" ,
               "src/styles.css"
              
             ],

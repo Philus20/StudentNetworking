@@ -14,12 +14,21 @@
           <!-- Buttons on the right -->
           <div class="col-md-9  mt-3" style="text-align: right">
             <button class="btn btn-primary mr-2" (click)="hideEditor()" [style.display]="hideE?'inline':'none'">Hide input</button>
+            
             <button class="btn btn-primary" (click)="showEditor()">Post a mentioning</button>
           </div>
           <div 
           [style.display]="ckEditor?'block':'none'"
           >
           <app-ck-editor></app-ck-editor>
+          <!-- <div class="input-group-append">
+            <label for="postImage" class="postImage_label">
+                <i class="bi bi-camera"></i>  
+              </label>
+              <input type="file" id="postImage" name="postImage" class="postImage"  (change)="onFile($event)" 
+              
+              >
+        </div> -->
         </div>
         </div>
       </div>
@@ -69,7 +78,7 @@
           </div> -->
 
            
-          <img [src]="profileUrl" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
+          <img src="{{baseUrl+d.profilePictureName}}" alt="User Avatar" class="img-fluid rounded-circle mr-3" style="width: 40px; height: 40px;">
           <div class="media-body">
               <span class="mt-0"><strong>{{d.firstName }} {{d.surname}}</strong></span>
               <p>Hey, how are you doing?</p>
