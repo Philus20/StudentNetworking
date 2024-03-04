@@ -19,7 +19,7 @@ export class MainPageComponent {
   backEndData !: Register
   showPage!:boolean;
   constructor(private toastr:ToastrService ,private emailService:EmailService,private router:Router, private chatS:ChatService){
-
+console.log("dk")
 this.chatS.myEmail =   this.emailService.userInformation.email
 //localStorage.removeItem('loginData')
   }
