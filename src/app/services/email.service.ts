@@ -150,6 +150,9 @@ mainPageLoader(num:number){
   this.errorNum.next(num);
 
 }
+
+
+
  // getUserById(pass1:string) {
   //   this.getEmail(email).subscribe({
   //     next: (data:any) => {

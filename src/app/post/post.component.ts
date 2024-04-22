@@ -136,6 +136,7 @@ temp!:Post
             text:this.temp.text,
             d:false,
             dc:false,
+            likes:this.temp.likes,
             
             profilePictureName: this.emailS.userInformation.profilePictureName,
              programme: this.emailS.userInformation.programme

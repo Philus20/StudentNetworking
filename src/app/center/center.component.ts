@@ -18,6 +18,8 @@ profileUrl:string = ''
 imageToShow: string | ArrayBuffer | null = null;
   videoToShow: string | ArrayBuffer | null = null;
 image:any
+filteredRegisters:Register[]=[]
+
 
 selectedFile: File | null = null;
 
@@ -49,6 +51,7 @@ if(this.emailService.profileUrl)
     
   }
 
+
   ngOnInit(){
     if(this.emailService.profileUrl){
       this.profileUrl = this.emailService.profileUrl;
@@ -76,7 +79,11 @@ if(this.emailService.profileUrl)
       localStorage.setItem("p",val)
 
     }
+
+
     )
+
+    
 
   }
 
@@ -172,5 +179,6 @@ hideE : boolean = false;
     this.modal.open(PostComponent)
 
   }
+
 
 }

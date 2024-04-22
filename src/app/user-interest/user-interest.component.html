@@ -138,11 +138,11 @@
     <div class="d-flex align-items-center justify-content-between">
       <!-- Like Section -->
       <div class="d-flex align-items-center">
-          <span class="material-icons me-2 text-danger love ">
+          <span class="material-icons me-2 text-danger love " (click)="like(post.i,post.id,post.userId)">
               favorite
               </span>
-        <span class="me-3">Like</span>
-        <div class="rounded-circle bg-secondary text-white px-2">10</div>
+        <span class="me-3" (click)="like(post.i,post.id,post.userId)">Like</span>
+        <div class="rounded-circle bg-secondary text-white px-2">{{post.likes}}</div>
       </div>
     
 
@@ -160,11 +160,11 @@
     
       <!-- View Section -->
       <div class="d-flex align-items-center">
-          <span class="material-icons visibility text-primary">
+          <!-- <span class="material-icons visibility text-primary">
               visibility
               </span>
         <span>View</span>
-        <div class="rounded-circle bg-secondary text-white px-2">90</div>
+        <div class="rounded-circle bg-secondary text-white px-2">90</div> -->
       </div>
     </div>
     </div>
@@ -180,12 +180,12 @@
     </form>
 
     <!-- Existing Comments -->
-    <div id="existingComments" class="existing-comments">
+    <!-- <div id="existingComments" class="existing-comments"> -->
       <!-- Comment items go here -->
-      <div class="mb-2">User 1: Great post!</div>
+      <!-- <div class="mb-2">User 1: Great post!</div>
       <div class="mb-2">User 2: Nice content!</div>
-      <!-- Add more comment items as needed -->
-    </div>
+      Add more comment items as needed
+    </div> -->
     </div>
 </div>
 

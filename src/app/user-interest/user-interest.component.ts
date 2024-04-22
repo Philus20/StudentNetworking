@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { EmailService } from '../services/email.service';
-import { PostInfo } from '../utils/post';
+import { Post, PostInfo } from '../utils/post';
 import { Register } from '../utils/IRegister';
 import { Route, Router } from '@angular/router';
 import { PostB } from '../utils/post';
@@ -63,7 +63,8 @@ export class UserInterestComponent {
                         image:post.image,
                         text:post.text,
                         profilePictureName: this.temp.profilePictureName,
-                        programme: this.temp.programme
+                        programme: this.temp.programme,
+                        likes:post.likes
                       };
       
                       this.emailS.postInfoData.push(add);
@@ -169,6 +170,11 @@ export class UserInterestComponent {
       next:(data:any)=>{
         console.log(data)
         this.commentsArray=data
+
+        this.postD=this.emailS.postInfoData[i]
+        this.postD.d=false
+        
+        this.postD.count +=1;
       },
       error:(err)=>{
         console.log(err)
@@ -176,8 +182,7 @@ export class UserInterestComponent {
      })
 
      this.commentContent=''
-     this.postD=this.emailS.postInfoData[i]
-     this.postD.d=false
+    
       }
 
 
@@ -211,5 +216,24 @@ showComments:boolean =false
           }
          })
 
+      }
+
+      postReturn!:Post
+
+      like(i:number,postId:number,userId:number){
+
+        this.sShared.likePost(postId,this.emailS.userInformation.id).subscribe({
+          next:(data:any)=>{
+           this.postReturn=data
+           this.postD=this.emailS.postInfoData[i]
+           this.postD.likes = this.postReturn.likes
+           console.log(data)
+           console.log(this.postReturn)
+          },
+          error:(err)=>{
+            console.log(err)
+          }
+        })
+        
       }
 }

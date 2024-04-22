@@ -36,6 +36,7 @@ export class CkEditorComponent {
           video:false,
           image:false,
           text:true,
+          
           // fileExt:this.post.fileExt,
           // fileName:this.post.fileName,
           postDate: new Date()
@@ -68,7 +69,8 @@ export class CkEditorComponent {
                 image:false,
                 text:true,
                 profilePictureName: this.temp.profilePictureName,
-                programme: this.temp.programme
+                programme: this.temp.programme,
+                likes:this.post.likes
               };
 
               this.emailS.postInfoData.push(add);

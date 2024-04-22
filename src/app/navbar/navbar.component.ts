@@ -6,6 +6,8 @@ import { Register } from '../utils/IRegister';
 import { TopChatAddCounting } from '../utils/IRegister';
 import { EmailService } from '../services/email.service';
 import { Message } from '../utils/Message';
+import { SignalrService } from '../services/signalr.service';
+import { SharedService } from '../services/shared.service';
 EmailService
 @Component({
   selector: 'app-navbar',
@@ -19,17 +21,55 @@ export class NavbarComponent {
   baseUrl:string = 'http://localhost:5293/api/Files/';
   activeUser1 !:Register 
   x:number = 0
-    
+  students:Register[]=[]
+  searchTerm:string =''
   backendMessages:Message[]=[]
   b:Message[]=[]
-  constructor(private router:Router,  public modal2:NgbModal, public modal:NgbActiveModal,private emailService:EmailService){
+  constructor(private router:Router,  public modal2:NgbModal, public modal:NgbActiveModal,private emailService:EmailService, private signalR:SignalrService,private sShare:SharedService){
     
+    this.signalR.getData().subscribe({
+
+      next:(x:any)=>{
+        this.students=x
+      }
+    })
   }
 
+  get filteredRegisters(): Register[] {
+    return this.students.filter(register =>
+      register.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      register.surname.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      register.email.toLowerCase().includes(this.searchTerm.toLowerCase())
+      // Add more fields if you want to include them in the search
+    );
+  }
+
+  onSearchChange(value: string) {
+    this.searchTerm = value;
+     //console.log(this.searchTerm)
+    for(let x of this.filteredRegisters){
+      console.log(x.firstName)
+    }
+//
+    this.sShare.shareSeachStudent(this.filteredRegisters)
+    this.sShare.emitSearchTrueOrFalse.next(false)
+    //this.modal2.open(EditProfileComponent)
+  }
+  displayMain(){
+    this.sShare.emitSearchTrueOrFalse.next(true)
+  }
   ngOnInit(){
+// for(let x of this.filteredRegisters){
+// console.log(x.firstName)
+}
+
+
   
     
-  }
+  
+
+
+
 
    open(){
    this.modal2.open(EditProfileComponent)

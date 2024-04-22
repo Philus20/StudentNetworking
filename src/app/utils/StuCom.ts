@@ -38,7 +38,8 @@ export interface QuestionComment{
     profilePictureName:string,
     content:string,
     questionId:number,
-    commentDate:Date
+    commentDate:Date,
+    index:number
    
     // public int id { get; set; }
 
@@ -58,5 +59,7 @@ export interface Question{
     surname:string,
     comment:number,
      content:string,
-     questionDate:Date
+     questionDate?:Date,
+     profilePictureName:string,
+     index?:number
 }

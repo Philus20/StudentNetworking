@@ -7,6 +7,7 @@ import { HttpErrorResponse,HttpResponse } from '@angular/common/http';
 //import { Observable } from 'rxjs';
 import { catchError,throwError } from 'rxjs';
 import { Comm } from '../utils/comment';
+import { Question } from '../utils/StuCom';
 @Injectable({
   providedIn: 'root'
 })
@@ -142,4 +143,28 @@ getStudentAndComment(postId:number){
 getQuestions(){
   return this.http.get('http://localhost:5293/api/Question')
 }
+
+postQuestion(data:Question){
+     return this.http.post('http://localhost:5293/api/Question',data)
+}
+
+getQuesionComment(id:number){
+  return this.http.get(`http://localhost:5293/api/QuestionComment/${id}`)
+}
+
+shareSearch = new Subject<Register[]>()
+shareSearch$= this.shareSearch.asObservable();
+shareSeachStudent(data:Register[]){
+
+  this.shareSearch.next(data)
+
+}
+
+likePost(postId:number,userId:number){
+
+  return this.http.get(`http://localhost:5293/api/Like/${postId}/${userId}`)
+}
+
+emitSearchTrueOrFalse = new Subject<boolean>()
+emitSearchTrueOrFalse$ = this.emitSearchTrueOrFalse.asObservable();
 }

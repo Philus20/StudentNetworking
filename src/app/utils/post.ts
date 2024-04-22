@@ -8,7 +8,9 @@ export interface Post{
     id?:number,
     video:boolean,
     image:boolean,
-    text:boolean
+    text:boolean,
+    like?:boolean,
+    likes?:number
   
 }
 // "id": 61,
@@ -31,7 +33,9 @@ id:number,
     count:number,
     video:boolean,
     image:boolean,
-    text:boolean
+    text:boolean,
+    like?:boolean,
+    likes?:number
 }
 
 
@@ -53,7 +57,9 @@ id:number,
   dc:boolean,
   video:boolean,
   image:boolean,
-  text:boolean
+  text:boolean,
+  like?:boolean,
+    likes?:number
  // commentId:number
 
  // "outputPath": "dist/final-project",
